@@ -1,0 +1,452 @@
+[
+  {
+    "id": 1,
+    "name": "Arduino UNO R3",
+    "categoryId": 1,
+    "brand": "Arduino",
+    "price": 18500,
+    "stock": true,
+    "image": "https://placehold.co/600x600/png?text=Arduino+UNO+R3"
+  },
+  {
+    "id": 2,
+    "name": "Arduino Nano V3",
+    "categoryId": 1,
+    "brand": "Arduino",
+    "price": 11200,
+    "stock": true,
+    "image": "https://placehold.co/600x600/png?text=Arduino+Nano+V3"
+  },
+  {
+    "id": 3,
+    "name": "Arduino Mega 2560",
+    "categoryId": 1,
+    "brand": "Arduino",
+    "price": 28500,
+    "stock": true,
+    "image": "https://placehold.co/600x600/png?text=Arduino+Mega+2560"
+  },
+  {
+    "id": 4,
+    "name": "ESP32 DevKit V1",
+    "categoryId": 1,
+    "brand": "Espressif",
+    "price": 12500,
+    "stock": true,
+    "image": "https://placehold.co/600x600/png?text=ESP32+DevKit"
+  },
+  {
+    "id": 5,
+    "name": "ESP8266 NodeMCU",
+    "categoryId": 1,
+    "brand": "Espressif",
+    "price": 8900,
+    "stock": false,
+    "image": "https://placehold.co/600x600/png?text=ESP8266"
+  },
+  {
+    "id": 6,
+    "name": "Raspberry Pi Pico W",
+    "categoryId": 1,
+    "brand": "Raspberry Pi",
+    "price": 16500,
+    "stock": true,
+    "image": "https://placehold.co/600x600/png?text=Raspberry+Pi+Pico"
+  },
+  {
+    "id": 7,
+    "name": "Arduino Leonardo",
+    "categoryId": 1,
+    "brand": "Arduino",
+    "price": 19800,
+    "stock": true,
+    "image": "https://placehold.co/600x600/png?text=Arduino+Leonardo"
+  },
+  {
+    "id": 8,
+    "name": "ESP32-S3 DevKit",
+    "categoryId": 1,
+    "brand": "Espressif",
+    "price": 17800,
+    "stock": true,
+    "image": "https://placehold.co/600x600/png?text=ESP32-S3"
+  },
+  {
+    "id": 9,
+    "name": "Sensor de temperatura DHT11",
+    "categoryId": 2,
+    "brand": "Aosong",
+    "price": 3200,
+    "stock": true,
+    "image": "https://placehold.co/600x600/png?text=DHT11"
+  },
+  {
+    "id": 10,
+    "name": "Sensor de temperatura DHT22",
+    "categoryId": 2,
+    "brand": "Aosong",
+    "price": 7200,
+    "stock": true,
+    "image": "https://placehold.co/600x600/png?text=DHT22"
+  },
+  {
+    "id": 11,
+    "name": "Sensor ultrasónico HC-SR04",
+    "categoryId": 2,
+    "brand": "Generic",
+    "price": 3500,
+    "stock": true,
+    "image": "https://placehold.co/600x600/png?text=HC-SR04"
+  },
+  {
+    "id": 12,
+    "name": "Sensor PIR HC-SR501",
+    "categoryId": 2,
+    "brand": "Generic",
+    "price": 2900,
+    "stock": true,
+    "image": "https://placehold.co/600x600/png?text=HC-SR501"
+  },
+  {
+    "id": 13,
+    "name": "Sensor de humedad de suelo",
+    "categoryId": 2,
+    "brand": "Generic",
+    "price": 2800,
+    "stock": true,
+    "image": "https://placehold.co/600x600/png?text=Humedad"
+  },
+  {
+    "id": 14,
+    "name": "Sensor de luz LDR",
+    "categoryId": 2,
+    "brand": "Generic",
+    "price": 1900,
+    "stock": true,
+    "image": "https://placehold.co/600x600/png?text=LDR"
+  },
+  {
+    "id": 15,
+    "name": "Sensor de gas MQ-2",
+    "categoryId": 2,
+    "brand": "Hanwei",
+    "price": 4600,
+    "stock": false,
+    "image": "https://placehold.co/600x600/png?text=MQ-2"
+  },
+  {
+    "id": 16,
+    "name": "Sensor de distancia VL53L0X",
+    "categoryId": 2,
+    "brand": "ST",
+    "price": 9800,
+    "stock": true,
+    "image": "https://placehold.co/600x600/png?text=VL53L0X"
+  },
+  {
+    "id": 17,
+    "name": "Pantalla LCD 16x2",
+    "categoryId": 3,
+    "brand": "Generic",
+    "price": 4800,
+    "stock": true,
+    "image": "https://placehold.co/600x600/png?text=LCD+16x2"
+  },
+  {
+    "id": 18,
+    "name": "Display OLED 0.96 I2C",
+    "categoryId": 3,
+    "brand": "Generic",
+    "price": 6200,
+    "stock": true,
+    "image": "https://placehold.co/600x600/png?text=OLED+0.96"
+  },
+  {
+    "id": 19,
+    "name": "Display OLED 1.3 pulgadas",
+    "categoryId": 3,
+    "brand": "Generic",
+    "price": 8900,
+    "stock": true,
+    "image": "https://placehold.co/600x600/png?text=OLED+1.3"
+  },
+  {
+    "id": 20,
+    "name": "Display 7 segmentos 4 dígitos",
+    "categoryId": 3,
+    "brand": "Generic",
+    "price": 2700,
+    "stock": true,
+    "image": "https://placehold.co/600x600/png?text=7+Segmentos"
+  },
+  {
+    "id": 21,
+    "name": "Display TFT 2.4 pulgadas",
+    "categoryId": 3,
+    "brand": "Generic",
+    "price": 12500,
+    "stock": false,
+    "image": "https://placehold.co/600x600/png?text=TFT+2.4"
+  },
+  {
+    "id": 22,
+    "name": "Módulo relé 1 canal 5V",
+    "categoryId": 4,
+    "brand": "Generic",
+    "price": 2200,
+    "stock": true,
+    "image": "https://placehold.co/600x600/png?text=Relay+1CH"
+  },
+  {
+    "id": 23,
+    "name": "Módulo relé 4 canales 5V",
+    "categoryId": 4,
+    "brand": "Generic",
+    "price": 5400,
+    "stock": true,
+    "image": "https://placehold.co/600x600/png?text=Relay+4CH"
+  },
+  {
+    "id": 24,
+    "name": "Módulo Bluetooth HC-05",
+    "categoryId": 4,
+    "brand": "HC",
+    "price": 6800,
+    "stock": true,
+    "image": "https://placehold.co/600x600/png?text=HC-05"
+  },
+  {
+    "id": 25,
+    "name": "Módulo Bluetooth HC-06",
+    "categoryId": 4,
+    "brand": "HC",
+    "price": 6200,
+    "stock": false,
+    "image": "https://placehold.co/600x600/png?text=HC-06"
+  },
+  {
+    "id": 26,
+    "name": "Módulo RTC DS3231",
+    "categoryId": 4,
+    "brand": "Maxim",
+    "price": 5800,
+    "stock": true,
+    "image": "https://placehold.co/600x600/png?text=DS3231"
+  },
+  {
+    "id": 27,
+    "name": "Módulo MicroSD",
+    "categoryId": 4,
+    "brand": "Generic",
+    "price": 2900,
+    "stock": true,
+    "image": "https://placehold.co/600x600/png?text=MicroSD"
+  },
+  {
+    "id": 28,
+    "name": "Protoboard 830 puntos",
+    "categoryId": 5,
+    "brand": "Generic",
+    "price": 4500,
+    "stock": true,
+    "image": "https://placehold.co/600x600/png?text=Protoboard+830"
+  },
+  {
+    "id": 29,
+    "name": "Protoboard 400 puntos",
+    "categoryId": 5,
+    "brand": "Generic",
+    "price": 2900,
+    "stock": true,
+    "image": "https://placehold.co/600x600/png?text=Protoboard+400"
+  },
+  {
+    "id": 30,
+    "name": "Kit de cables Dupont 120 piezas",
+    "categoryId": 5,
+    "brand": "Generic",
+    "price": 3900,
+    "stock": true,
+    "image": "https://placehold.co/600x600/png?text=Cables+Dupont"
+  },
+  {
+    "id": 31,
+    "name": "Resistencias 1/4W 500 unidades",
+    "categoryId": 6,
+    "brand": "Generic",
+    "price": 5200,
+    "stock": true,
+    "image": "https://placehold.co/600x600/png?text=Resistencias"
+  },
+  {
+    "id": 32,
+    "name": "Kit de capacitores electrolíticos",
+    "categoryId": 6,
+    "brand": "Nichicon",
+    "price": 8900,
+    "stock": true,
+    "image": "https://placehold.co/600x600/png?text=Capacitores"
+  },
+  {
+    "id": 33,
+    "name": "Kit de LEDs 5mm 300 unidades",
+    "categoryId": 6,
+    "brand": "Generic",
+    "price": 6100,
+    "stock": true,
+    "image": "https://placehold.co/600x600/png?text=LEDs"
+  },
+  {
+    "id": 34,
+    "name": "Kit de diodos 1N4007",
+    "categoryId": 6,
+    "brand": "Generic",
+    "price": 3200,
+    "stock": true,
+    "image": "https://placehold.co/600x600/png?text=1N4007"
+  },
+  {
+    "id": 35,
+    "name": "Transistor BC547 x50",
+    "categoryId": 6,
+    "brand": "Generic",
+    "price": 3600,
+    "stock": false,
+    "image": "https://placehold.co/600x600/png?text=BC547"
+  },
+  {
+    "id": 36,
+    "name": "Multímetro digital UT33D+",
+    "categoryId": 7,
+    "brand": "UNI-T",
+    "price": 24500,
+    "stock": true,
+    "image": "https://placehold.co/600x600/png?text=UT33D%2B"
+  },
+  {
+    "id": 37,
+    "name": "Multímetro digital UT61E",
+    "categoryId": 7,
+    "brand": "UNI-T",
+    "price": 68500,
+    "stock": true,
+    "image": "https://placehold.co/600x600/png?text=UT61E"
+  },
+  {
+    "id": 38,
+    "name": "Pinza amperométrica digital",
+    "categoryId": 7,
+    "brand": "UNI-T",
+    "price": 36500,
+    "stock": true,
+    "image": "https://placehold.co/600x600/png?text=Pinza+Amperometrica"
+  },
+  {
+    "id": 39,
+    "name": "Osciloscopio digital 100MHz",
+    "categoryId": 7,
+    "brand": "Rigol",
+    "price": 385000,
+    "stock": false,
+    "image": "https://placehold.co/600x600/png?text=Osciloscopio"
+  },
+  {
+    "id": 40,
+    "name": "Estación de soldadura 60W",
+    "categoryId": 8,
+    "brand": "YIHUA",
+    "price": 42500,
+    "stock": true,
+    "image": "https://placehold.co/600x600/png?text=Soldadura+60W"
+  },
+  {
+    "id": 41,
+    "name": "Estación de aire caliente",
+    "categoryId": 8,
+    "brand": "YIHUA",
+    "price": 68500,
+    "stock": true,
+    "image": "https://placehold.co/600x600/png?text=Aire+Caliente"
+  },
+  {
+    "id": 42,
+    "name": "Juego de destornilladores de precisión",
+    "categoryId": 8,
+    "brand": "Jakemy",
+    "price": 12800,
+    "stock": true,
+    "image": "https://placehold.co/600x600/png?text=Destornilladores"
+  },
+  {
+    "id": 43,
+    "name": "Pinza de corte electrónica",
+    "categoryId": 8,
+    "brand": "Proskit",
+    "price": 9500,
+    "stock": true,
+    "image": "https://placehold.co/600x600/png?text=Pinza+de+Corte"
+  },
+  {
+    "id": 44,
+    "name": "Fuente regulable 30V 5A",
+    "categoryId": 9,
+    "brand": "Wanptek",
+    "price": 78500,
+    "stock": true,
+    "image": "https://placehold.co/600x600/png?text=Fuente+30V"
+  },
+  {
+    "id": 45,
+    "name": "Fuente regulable 60V 10A",
+    "categoryId": 9,
+    "brand": "Wanptek",
+    "price": 145000,
+    "stock": false,
+    "image": "https://placehold.co/600x600/png?text=Fuente+60V"
+  },
+  {
+    "id": 46,
+    "name": "Fuente switching 12V 5A",
+    "categoryId": 9,
+    "brand": "Mean Well",
+    "price": 18500,
+    "stock": true,
+    "image": "https://placehold.co/600x600/png?text=Fuente+12V"
+  },
+  {
+    "id": 47,
+    "name": "Cable Dupont macho-macho",
+    "categoryId": 10,
+    "brand": "Generic",
+    "price": 2200,
+    "stock": true,
+    "image": "https://placehold.co/600x600/png?text=Dupont+Macho"
+  },
+  {
+    "id": 48,
+    "name": "Cable Dupont macho-hembra",
+    "categoryId": 10,
+    "brand": "Generic",
+    "price": 2400,
+    "stock": true,
+    "image": "https://placehold.co/600x600/png?text=Dupont+Macho-Hembra"
+  },
+  {
+    "id": 49,
+    "name": "Conector Jack DC 5.5mm",
+    "categoryId": 10,
+    "brand": "Generic",
+    "price": 1500,
+    "stock": true,
+    "image": "https://placehold.co/600x600/png?text=Jack+DC"
+  },
+  {
+    "id": 50,
+    "name": "Cable USB Tipo C 1 metro",
+    "categoryId": 10,
+    "brand": "UGREEN",
+    "price": 7800,
+    "stock": true,
+    "image": "https://placehold.co/600x600/png?text=USB+Tipo+C"
+  }
+]

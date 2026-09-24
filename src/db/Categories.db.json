@@ -1,0 +1,12 @@
+[
+  { "id": 1, "name": "Placas" },
+  { "id": 2, "name": "Sensores" },
+  { "id": 3, "name": "Displays" },
+  { "id": 4, "name": "Módulos" },
+  { "id": 5, "name": "Prototipado" },
+  { "id": 6, "name": "Componentes" },
+  { "id": 7, "name": "Instrumental" },
+  { "id": 8, "name": "Herramientas" },
+  { "id": 9, "name": "Fuentes de alimentación" },
+  { "id": 10, "name": "Cables y conectores" }
+]

@@ -1,4 +1,9 @@
+"use client";
+import { useRouter } from "next/navigation";
+
+
 export default function ProductCard({ product }) {
+    const router = useRouter();
   return (
     <article className="group overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900/80 shadow-lg shadow-black/20 transition duration-300 hover:-translate-y-1 hover:border-orange-500/50 hover:shadow-orange-500/10">
       
@@ -42,6 +47,7 @@ export default function ProductCard({ product }) {
           </div>
           <button
             type="button"
+            onClick={()=>{router.push(`/product?id=${product.id}`);}}
             className="flex h-9 w-9 items-center justify-center rounded-lg border border-orange-500/30 bg-orange-500/10 text-orange-400 transition hover:border-orange-500 hover:bg-orange-500 hover:text-white"
             aria-label={`Ver ${product.name}`}
           >

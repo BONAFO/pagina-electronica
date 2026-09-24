@@ -2,7 +2,7 @@
 
 import ProductCard from "../components/ProductCard";
 import products from "../db/Products.db.json";
-import ProductFilterMenu from "./ProductFilterMenu";
+import ProductFilterMenu from "../components/ProductFilterMenu";
 import { useProductsModal } from "../context/ProductsModalContext";
 export default function ProductsContainer() {
   const {modalVisible} = useProductsModal();

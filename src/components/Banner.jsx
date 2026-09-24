@@ -96,7 +96,7 @@ export default function Banner() {
               </button>
               <button
                 type="button"
-                onClick={() => alert("CONTACTO")}
+                onClick={() => router.push("/contact/")}
                 className="rounded-xl border border-white/30 bg-white/10 px-6 py-3 font-semibold text-white backdrop-blur-sm transition hover:bg-white/20 sm:px-7 sm:py-3.5"
               >
                 Contactanos

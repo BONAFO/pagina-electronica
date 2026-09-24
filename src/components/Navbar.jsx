@@ -1,88 +1,78 @@
 "use client";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const router = useRouter();
+  const navigate = (path) => {
+    setIsOpen(false);
+    router.push(path);
+  };
   return (
     <nav className="absolute left-0 top-0 z-50 w-full">
-      
       <div className="border-b border-white/10 bg-black/20 backdrop-blur-md">
-        
         <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 sm:px-8 lg:px-10">
-          
           {/* Logo */}
-          <a
-            href="#"
+          <button
+            type="button"
+            onClick={() => navigate("/")}
             className="flex items-center gap-2 text-lg font-bold text-white"
           >
-            
             <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-orange-500 text-lg">
-              
               ⚡
             </span>
             <span>
-              
               ELECTRO <span className="text-orange-400">TEC</span>
             </span>
-          </a>
+          </button>
           {/* Desktop */}
           <div className="hidden items-center gap-8 md:flex">
-            
-            <a
-              href="#inicio"
+            <button
+              type="button"
+              onClick={() => navigate("/")}
               className="text-sm font-medium text-white/90 transition hover:text-orange-400"
             >
-              
               Inicio
-            </a>
-            <a
-              href="#productos"
+            </button>
+            <button
+              type="button"
+              onClick={() => navigate("/products/")}
               className="text-sm font-medium text-white/90 transition hover:text-orange-400"
             >
-              
               Productos
-            </a>
-            <a
-              href="#servicios"
+            </button>
+            <button
+              type="button"
+              onClick={() => navigate("/services/")}
               className="text-sm font-medium text-white/90 transition hover:text-orange-400"
             >
-              
               Servicios
-            </a>
-            <a
-              href="#nosotros"
+            </button>
+            <button
+              type="button"
+              onClick={() => navigate("/about/")}
               className="text-sm font-medium text-white/90 transition hover:text-orange-400"
             >
-              
               Nosotros
-            </a>
-            <a
-              href="#contacto"
-              className="text-sm font-medium text-white/90 transition hover:text-orange-400"
-            >
-              
-              Contacto
-            </a>
-            <a
-              href="#contacto"
+            </button>
+
+            <button
+              type="button"
+              onClick={() => navigate("/contact/")}
               className="rounded-xl bg-orange-500 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-orange-400"
             >
-              
               Consultar
-            </a>
+            </button>
           </div>
           {/* Mobile button */}
           <button
             type="button"
-            onClick={() => setIsOpen(!isOpen)}
+              onClick={() => setIsOpen(!isOpen)}
             className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/20 bg-white/10 text-white backdrop-blur-sm md:hidden"
             aria-label="Abrir menú"
             aria-expanded={isOpen}
           >
-            
-            <span className="text-2xl leading-none">
-              
-              {isOpen ? "×" : "☰"}
-            </span>
+            <span className="text-2xl leading-none">{isOpen ? "×" : "☰"}</span>
           </button>
         </div>
       </div>
@@ -90,57 +80,49 @@ export default function Navbar() {
       <div
         className={`overflow-hidden border-b border-white/10 bg-black/90 backdrop-blur-xl transition-all duration-300 md:hidden ${isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}`}
       >
-        
         <div className="flex flex-col px-5 py-4">
-          
-          <a
-            href="#inicio"
-            onClick={() => setIsOpen(false)}
-            className="border-b border-white/10 py-4 text-sm font-medium text-white transition hover:text-orange-400"
+          <button
+            type="button"
+            onClick={() => navigate("/")}
+            className="border-b border-white/10 py-4 text-left text-sm font-medium text-white transition hover:text-orange-400"
           >
-            
             Inicio
-          </a>
-          <a
-            href="#productos"
-            onClick={() => setIsOpen(false)}
-            className="border-b border-white/10 py-4 text-sm font-medium text-white transition hover:text-orange-400"
+          </button>
+          <button
+            type="button"
+            onClick={() => navigate("/products/")}
+            className="border-b border-white/10 py-4 text-left text-sm font-medium text-white transition hover:text-orange-400"
           >
-            
             Productos
-          </a>
-          <a
-            href="#servicios"
-            onClick={() => setIsOpen(false)}
-            className="border-b border-white/10 py-4 text-sm font-medium text-white transition hover:text-orange-400"
+          </button>
+          <button
+            type="button"
+            onClick={() => navigate("/services/")}
+            className="border-b border-white/10 py-4 text-left text-sm font-medium text-white transition hover:text-orange-400"
           >
-            
             Servicios
-          </a>
-          <a
-            href="#nosotros"
-            onClick={() => setIsOpen(false)}
-            className="border-b border-white/10 py-4 text-sm font-medium text-white transition hover:text-orange-400"
+          </button>
+          <button
+            type="button"
+            onClick={() => navigate("/about/")}
+            className="border-b border-white/10 py-4 text-left text-sm font-medium text-white transition hover:text-orange-400"
           >
-            
             Nosotros
-          </a>
-          <a
-            href="#contacto"
-            onClick={() => setIsOpen(false)}
-            className="border-b border-white/10 py-4 text-sm font-medium text-white transition hover:text-orange-400"
+          </button>
+          <button
+            type="button"
+            onClick={() => navigate("/contact/")}
+            className="border-b border-white/10 py-4 text-left text-sm font-medium text-white transition hover:text-orange-400"
           >
-            
             Contacto
-          </a>
-          <a
-            href="#contacto"
-            onClick={() => setIsOpen(false)}
+          </button>
+          <button
+            type="button"
+            onClick={() => navigate("/contact/")}
             className="mt-4 rounded-xl bg-orange-500 px-5 py-3 text-center text-sm font-semibold text-white transition hover:bg-orange-400"
           >
-            
             Consultar
-          </a>
+          </button>
         </div>
       </div>
     </nav>

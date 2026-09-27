@@ -1,5 +1,5 @@
 "use client";
-import Main from "../components/MainComponent";
+import Footer from "../components/Footer";
 import BannerContainer from "../containers/BannerContainer";
 import { ScreenProvider } from "../context/ScreenContext";
 
@@ -8,6 +8,7 @@ export default function MainLayout({ children }) {
     <ScreenProvider>
       <BannerContainer></BannerContainer>
       {children}
+      <Footer />
     </ScreenProvider>
   );
 }

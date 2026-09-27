@@ -18,5 +18,5 @@ export default function Main({ children }) {
         </main>
       )}
     </>
-  );
+  );  
 }

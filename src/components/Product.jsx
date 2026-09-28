@@ -1,11 +1,22 @@
+
 "use client";
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { useNavigation } from "../context/NavigationContext";
 
 export default function Product({ product }) {
   const router = useRouter();
+  const { pages } = useNavigation();
   const [showModal, setShowModal] = useState(false);
+
+  const homePath = pages.find(
+    (page) => page.name === "Inicio"
+  )?.path;
+
+  const productsPath = pages.find(
+    (page) => page.name === "Productos"
+  )?.path;
 
   return (
     <main className="min-h-screen bg-zinc-950 text-white">
@@ -13,12 +24,13 @@ export default function Product({ product }) {
         <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 sm:px-8 lg:px-10">
           <button
             type="button"
-            onClick={() => router.push("/")}
-            className="flex items-center gap-2 text-lg font-bold"
+            onClick={() => router.push(homePath)}
+            className="flex cursor-pointer items-center gap-2 text-lg font-bold"
           >
             <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-orange-500 text-lg">
               ⚡
             </span>
+
             <span>
               ELECTRO <span className="text-orange-400">TEC</span>
             </span>
@@ -26,8 +38,8 @@ export default function Product({ product }) {
 
           <button
             type="button"
-            onClick={() => router.push("/products/")}
-            className="rounded-xl border border-zinc-800 bg-zinc-900 px-4 py-2 text-sm font-medium text-zinc-300 transition hover:border-orange-500/60 hover:text-white"
+            onClick={() => router.push(productsPath)}
+            className="cursor-pointer rounded-xl border border-zinc-800 bg-zinc-900 px-4 py-2 text-sm font-medium text-zinc-300 transition hover:border-orange-500/60 hover:text-white"
           >
             ← Productos
           </button>
@@ -38,8 +50,8 @@ export default function Product({ product }) {
         <div className="mb-6 text-sm text-zinc-500">
           <button
             type="button"
-            onClick={() => router.push("/")}
-            className="transition hover:text-orange-400"
+            onClick={() => router.push(homePath)}
+            className="cursor-pointer transition hover:text-orange-400"
           >
             Inicio
           </button>
@@ -48,8 +60,8 @@ export default function Product({ product }) {
 
           <button
             type="button"
-            onClick={() => router.push("/products/")}
-            className="transition hover:text-orange-400"
+            onClick={() => router.push(productsPath)}
+            className="cursor-pointer transition hover:text-orange-400"
           >
             Productos
           </button>
@@ -128,15 +140,15 @@ export default function Product({ product }) {
                 <button
                   type="button"
                   onClick={() => setShowModal(true)}
-                  className="flex-1 rounded-xl bg-orange-500 px-6 py-3.5 font-semibold text-white transition hover:bg-orange-400"
+                  className="flex-1 cursor-pointer rounded-xl bg-orange-500 px-6 py-3.5 font-semibold text-white transition hover:bg-orange-400"
                 >
                   Consultar producto
                 </button>
 
                 <button
                   type="button"
-                  onClick={() => router.push("/products/")}
-                  className="rounded-xl border border-zinc-700 bg-zinc-900 px-6 py-3.5 font-semibold text-zinc-300 transition hover:border-orange-500/60 hover:text-white"
+                  onClick={() => router.push(productsPath)}
+                  className="cursor-pointer rounded-xl border border-zinc-700 bg-zinc-900 px-6 py-3.5 font-semibold text-zinc-300 transition hover:border-orange-500/60 hover:text-white"
                 >
                   Ver productos
                 </button>
@@ -167,11 +179,11 @@ export default function Product({ product }) {
       {/* Modal */}
       {showModal && (
         <div
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/70 px-5 backdrop-blur-sm"
+          className="fixed inset-0 z-[100] flex cursor-pointer items-center justify-center bg-black/70 px-5 backdrop-blur-sm"
           onClick={() => setShowModal(false)}
         >
           <div
-            className="w-full max-w-md rounded-3xl border border-zinc-800 bg-zinc-950 p-7 text-center shadow-2xl shadow-black/50"
+            className="w-full max-w-md cursor-default rounded-3xl border border-zinc-800 bg-zinc-950 p-7 text-center shadow-2xl shadow-black/50"
             onClick={(event) => event.stopPropagation()}
           >
             <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-orange-500/10 text-3xl">
@@ -191,7 +203,7 @@ export default function Product({ product }) {
             <button
               type="button"
               onClick={() => setShowModal(false)}
-              className="mt-7 w-full rounded-xl bg-orange-500 px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-orange-400"
+              className="mt-7 w-full cursor-pointer rounded-xl bg-orange-500 px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-orange-400"
             >
               Entendido
             </button>
@@ -201,3 +213,4 @@ export default function Product({ product }) {
     </main>
   );
 }
+

@@ -1,11 +1,24 @@
+
+"use client";
+
+import { useRouter } from "next/navigation";
+import { useNavigation } from "../context/NavigationContext";
+
 export default function Footer() {
+  const router = useRouter();
+  const { pages } = useNavigation();
+
   return (
     <footer className="border-t border-zinc-800 bg-zinc-950 text-white">
       <div className="mx-auto max-w-7xl px-5 py-12 sm:px-8 lg:px-10">
         <div className="grid gap-10 md:grid-cols-3">
           {/* Marca */}
           <div>
-            <div className="flex items-center gap-2 text-lg font-bold">
+            <button
+              type="button"
+              onClick={() => router.push("/")}
+              className="flex cursor-pointer items-center gap-2 text-lg font-bold"
+            >
               <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-orange-500 text-lg">
                 ⚡
               </span>
@@ -13,7 +26,7 @@ export default function Footer() {
               <span>
                 ELECTRO <span className="text-orange-400">TEC</span>
               </span>
-            </div>
+            </button>
 
             <p className="mt-4 max-w-sm text-sm leading-6 text-zinc-500">
               Componentes, herramientas e instrumental para tus proyectos
@@ -28,40 +41,16 @@ export default function Footer() {
             </h3>
 
             <div className="mt-4 flex flex-col gap-3">
-              <a
-                href="/"
-                className="w-fit text-sm text-zinc-500 transition hover:text-orange-400"
-              >
-                Inicio
-              </a>
-
-              <a
-                href="/products/"
-                className="w-fit text-sm text-zinc-500 transition hover:text-orange-400"
-              >
-                Productos
-              </a>
-
-              <a
-                href="/services/"
-                className="w-fit text-sm text-zinc-500 transition hover:text-orange-400"
-              >
-                Servicios
-              </a>
-
-              <a
-                href="/about/"
-                className="w-fit text-sm text-zinc-500 transition hover:text-orange-400"
-              >
-                Nosotros
-              </a>
-
-              <a
-                href="/contact/"
-                className="w-fit text-sm text-zinc-500 transition hover:text-orange-400"
-              >
-                Contacto
-              </a>
+              {pages.map((page) => (
+                <button
+                  key={page.name}
+                  type="button"
+                  onClick={() => router.push(page.path)}
+                  className="w-fit cursor-pointer text-sm text-zinc-500 transition hover:text-orange-400"
+                >
+                  {page.name}
+                </button>
+              ))}
             </div>
           </div>
 
@@ -89,3 +78,4 @@ export default function Footer() {
     </footer>
   );
 }
+

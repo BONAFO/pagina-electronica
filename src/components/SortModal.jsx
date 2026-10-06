@@ -1,11 +1,15 @@
-
 "use client";
 
-import { useProductsModal } from "../context/ProductsModalContext";
 import sortOptions from "../db/Sort.db.json";
+import useSortModalHook from "../hooks/main/SortModal";
 
 export default function SortModal() {
-  const { setModalVisible } = useProductsModal();
+  const {
+    setModalVisible,
+    currentSort,
+    handleSort,
+    clearSort,
+  } = useSortModalHook();
 
   return (
     <>
@@ -38,20 +42,49 @@ export default function SortModal() {
 
         {/* Opciones */}
         <div className="p-5">
-          <h3 className="mb-3 text-sm font-semibold text-zinc-300">
-            Ordenar por
-          </h3>
+          <div className="mb-4 flex items-center justify-between">
+            <h3 className="text-sm font-semibold text-zinc-300">
+              Ordenar por
+            </h3>
+
+            {currentSort && (
+              <button
+                type="button"
+                onClick={clearSort}
+                className="cursor-pointer text-xs font-medium text-orange-400 transition hover:text-orange-300"
+              >
+                Limpiar
+              </button>
+            )}
+          </div>
 
           <div className="space-y-2">
-            {sortOptions.map((option) => (
-              <button
-                key={option.id}
-                type="button"
-                className="flex w-full cursor-pointer items-center rounded-xl border border-zinc-800 bg-zinc-900 px-4 py-3 text-left text-sm text-zinc-300 transition hover:border-orange-500/60 hover:bg-zinc-800 hover:text-white"
-              >
-                {option.name}
-              </button>
-            ))}
+            {sortOptions.map((option) => {
+              const isActive = currentSort === String(option.id);
+
+              return (
+                <button
+                  key={option.id}
+                  type="button"
+                  onClick={() => handleSort(option)}
+                  className={`flex w-full cursor-pointer items-center rounded-xl border px-4 py-3 text-left text-sm transition ${
+                    isActive
+                      ? "border-orange-500/60 bg-orange-500/10 font-semibold text-orange-400"
+                      : "border-zinc-800 bg-zinc-900 text-zinc-300 hover:border-orange-500/40 hover:bg-zinc-800 hover:text-white"
+                  }`}
+                >
+                  <span className="flex-1">
+                    {option.name}
+                  </span>
+
+                  {isActive && (
+                    <span className="text-orange-400">
+                      ✓
+                    </span>
+                  )}
+                </button>
+              );
+            })}
           </div>
         </div>
       </aside>
@@ -72,4 +105,3 @@ export default function SortModal() {
     </>
   );
 }
-

@@ -91,7 +91,7 @@ export default function Home() {
 
             <h1 className="text-5xl font-bold leading-[1.05] tracking-tight sm:text-6xl lg:text-8xl">
               La electrónica <br />
-              empieza con una
+              empieza con una&nbsp;
               <span className="text-orange-400">idea.</span>
             </h1>
 

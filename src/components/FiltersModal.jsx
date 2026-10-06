@@ -1,11 +1,18 @@
-
 "use client";
 
 import { useProductsModal } from "../context/ProductsModalContext";
 import categories from "../db/Categories.db.json";
+import useFiltersModalHook from "../hooks/main/FiltersModal";
 
 export default function FiltersModal() {
   const { setModalVisible } = useProductsModal();
+
+  const {
+    clearFilters,
+    getCategorySlug,
+    handleCategory,
+    currentCategory,
+  } = useFiltersModalHook();
 
   return (
     <>
@@ -38,20 +45,50 @@ export default function FiltersModal() {
 
         {/* Categorías */}
         <div className="p-5">
-          <h3 className="mb-3 text-sm font-semibold text-zinc-300">
-            Categorías
-          </h3>
+          <div className="mb-4 flex items-center justify-between">
+            <h3 className="text-sm font-semibold text-zinc-300">
+              Categorías
+            </h3>
+
+            {currentCategory && (
+              <button
+                type="button"
+                onClick={clearFilters}
+                className="cursor-pointer text-xs font-medium text-orange-400 transition hover:text-orange-300"
+              >
+                Limpiar
+              </button>
+            )}
+          </div>
 
           <div className="space-y-2">
-            {categories.map((category) => (
-              <button
-                key={category.id}
-                type="button"
-                className="flex w-full cursor-pointer items-center rounded-xl border border-zinc-800 bg-zinc-900 px-4 py-3 text-left text-sm text-zinc-300 transition hover:border-orange-500/60 hover:bg-zinc-800 hover:text-white"
-              >
-                {category.name}
-              </button>
-            ))}
+            {categories.map((category) => {
+              const slug = getCategorySlug(category.name);
+              const isActive = currentCategory === slug;
+
+              return (
+                <button
+                  key={category.id}
+                  type="button"
+                  onClick={() => handleCategory(category)}
+                  className={`flex w-full cursor-pointer items-center rounded-xl border px-4 py-3 text-left text-sm transition ${
+                    isActive
+                      ? "border-orange-500/60 bg-orange-500/10 font-semibold text-orange-400"
+                      : "border-zinc-800 bg-zinc-900 text-zinc-300 hover:border-orange-500/40 hover:bg-zinc-800 hover:text-white"
+                  }`}
+                >
+                  <span className="flex-1">
+                    {category.name}
+                  </span>
+
+                  {isActive && (
+                    <span className="text-orange-400">
+                      ✓
+                    </span>
+                  )}
+                </button>
+              );
+            })}
           </div>
         </div>
       </aside>
@@ -72,4 +109,3 @@ export default function FiltersModal() {
     </>
   );
 }
-

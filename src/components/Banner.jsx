@@ -1,79 +1,25 @@
-
 "use client";
-
-import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
-import { useNavigation } from "../context/NavigationContext";
-
-const slides = [
-  {
-    image:
-      "https://lahorestore.pk/cdn/shop/articles/EssentialElectronicsComponentsforEngineeringStudents3215image-1763712697730_64eeffde-d379-4ad3-bb4d-a22190d9428d.png?v=1765629081",
-    title: "Todo para tu electrónica",
-    description: "Componentes, herramientas e instrumental para tus proyectos.",
-  },
-  {
-    image:
-      "https://http2.mlstatic.com/D_Q_NP_736871-MLA108156073409_032026-O.webp",
-    title: "Componentes para tus proyectos",
-    description: "Sensores, módulos, protoboards y mucho más.",
-  },
-  {
-    image:
-      "https://dfimg.dfrobot.com/enshop/image/cache3/Blog/13394/ABX00083_09.jpg.jpg",
-    title: "Medí. Probá. Creá.",
-    description: "Todo lo necesario para desarrollar y experimentar.",
-  },
-  {
-    image: "https://i.imgur.com/SpbAPQd.jpg",
-    title: "Herramientas para trabajar",
-    description: "Soldadura, medición, reparación y montaje electrónico.",
-  },
-  {
-    image:
-      "https://www.babyfriendlyair.com/images/en/technology/many_sensors.jpg",
-    title: "Llevá tus ideas a la práctica",
-    description: "Sensores, placas y componentes para tus proyectos.",
-  },
-];
+import t from "../translations/Banner";
+import useBannerHook from "../hooks/main/Banner";
 
 export default function Banner() {
-  const router = useRouter();
-  const { pages } = useNavigation();
-
-  const [current, setCurrent] = useState(0);
-
-  const productsPath = pages.find(
-    (page) => page.name === "Productos"
-  )?.path;
-
-  const contactPath = pages.find(
-    (page) => page.name === "Contacto"
-  )?.path;
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % slides.length);
-    }, 5000);
-
-    return () => clearInterval(interval);
-  }, []);
-
-  const nextSlide = () => {
-    setCurrent((prev) => (prev + 1) % slides.length);
-  };
-
-  const prevSlide = () => {
-    setCurrent((prev) => (prev - 1 + slides.length) % slides.length);
-  };
-
-  const slide = slides[current];
+  const {
+    contactPath,
+    current,
+    navigate,
+    nextSlide,
+    prevSlide,
+    productsPath,
+    setCurrent,
+    slide,
+    
+  } = useBannerHook();
 
   return (
     <section className="relative h-[430px] w-full overflow-hidden sm:h-[520px] lg:h-[650px]">
       {/* BACKGROUND */}
       <div className="pointer-events-none absolute inset-0">
-        {slides.map((item, index) => (
+        {t.slides.map((item, index) => (
           <div
             key={item.image}
             className={`absolute inset-0 transition-opacity duration-700 ${
@@ -85,9 +31,7 @@ export default function Banner() {
               alt=""
               className="h-full w-full object-cover"
             />
-
             <div className="absolute inset-0 bg-black/55" />
-
             <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/50 to-transparent" />
           </div>
         ))}
@@ -98,7 +42,7 @@ export default function Banner() {
         <div className="w-full px-5 sm:px-8 lg:px-16 xl:px-24">
           <div className="max-w-3xl text-white">
             <span className="mb-4 inline-block rounded-full border border-orange-400/40 bg-orange-400/10 px-3 py-1 text-xs font-medium text-orange-300 backdrop-blur-sm sm:px-4 sm:py-1.5 sm:text-sm">
-              Electrónica & tecnología
+              {t.badge}
             </span>
 
             <h1 className="text-3xl font-bold tracking-tight sm:text-5xl lg:text-6xl xl:text-7xl">
@@ -112,18 +56,18 @@ export default function Banner() {
             <div className="mt-6 flex flex-col gap-3 sm:mt-9 sm:flex-row">
               <button
                 type="button"
-                onClick={() => router.push(productsPath)}
+                onClick={() => navigate(productsPath)}
                 className="cursor-pointer rounded-xl bg-orange-500 px-6 py-3 font-semibold text-white transition hover:bg-orange-400 sm:px-7 sm:py-3.5"
               >
-                Ver productos
+                {t.buttons.products}
               </button>
 
               <button
                 type="button"
-                onClick={() => router.push(contactPath)}
+                onClick={() => navigate(contactPath)}
                 className="cursor-pointer rounded-xl border border-white/30 bg-white/10 px-6 py-3 font-semibold text-white backdrop-blur-sm transition hover:bg-white/20 sm:px-7 sm:py-3.5"
               >
-                Contactanos
+                {t.buttons.contact}
               </button>
             </div>
           </div>
@@ -135,7 +79,7 @@ export default function Banner() {
         type="button"
         onClick={prevSlide}
         className="absolute left-3 top-1/2 z-30 hidden h-10 w-10 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full border border-white/20 bg-black/30 text-xl text-white backdrop-blur-sm transition hover:bg-black/60 sm:flex sm:left-5 sm:h-11 sm:w-11 sm:text-2xl"
-        aria-label="Slide anterior"
+        aria-label={t.ariaLabels.prevSlide}
       >
         ‹
       </button>
@@ -145,7 +89,7 @@ export default function Banner() {
         type="button"
         onClick={nextSlide}
         className="absolute right-3 top-1/2 z-30 hidden h-10 w-10 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full border border-white/20 bg-black/30 text-xl text-white backdrop-blur-sm transition hover:bg-black/60 sm:flex sm:right-5 sm:h-11 sm:w-11 sm:text-2xl"
-        aria-label="Slide siguiente"
+        aria-label={t.ariaLabels.nextSlide}
       >
         ›
       </button>
@@ -156,18 +100,18 @@ export default function Banner() {
           type="button"
           onClick={prevSlide}
           className="flex h-9 w-9 cursor-pointer items-center justify-center rounded-full border border-white/20 bg-black/30 text-xl text-white backdrop-blur-sm transition hover:bg-black/60"
-          aria-label="Slide anterior"
+          aria-label={t.ariaLabels.prevSlide}
         >
           ‹
         </button>
 
         <div className="flex items-center gap-2">
-          {slides.map((_, index) => (
+          {t.slides.map((_, index) => (
             <button
               type="button"
               key={index}
               onClick={() => setCurrent(index)}
-              aria-label={`Ir al slide ${index + 1}`}
+              aria-label={t.ariaLabels.goToSlide(index + 1)}
               className={`h-2 cursor-pointer rounded-full transition-all duration-300 ${
                 index === current
                   ? "w-8 bg-orange-400"
@@ -181,7 +125,7 @@ export default function Banner() {
           type="button"
           onClick={nextSlide}
           className="flex h-9 w-9 cursor-pointer items-center justify-center rounded-full border border-white/20 bg-black/30 text-xl text-white backdrop-blur-sm transition hover:bg-black/60"
-          aria-label="Slide siguiente"
+          aria-label={t.ariaLabels.nextSlide}
         >
           ›
         </button>
@@ -189,12 +133,12 @@ export default function Banner() {
 
       {/* DOTS DESKTOP */}
       <div className="absolute bottom-5 left-1/2 z-30 hidden -translate-x-1/2 items-center gap-2 sm:flex sm:bottom-8 sm:gap-2.5">
-        {slides.map((_, index) => (
+        {t.slides.map((_, index) => (
           <button
             type="button"
             key={index}
             onClick={() => setCurrent(index)}
-            aria-label={`Ir al slide ${index + 1}`}
+            aria-label={t.ariaLabels.goToSlide(index + 1)}
             className={`h-2 cursor-pointer rounded-full transition-all duration-300 ${
               index === current
                 ? "w-8 bg-orange-400"

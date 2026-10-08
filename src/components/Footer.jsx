@@ -1,12 +1,10 @@
-
 "use client";
 
-import { useRouter } from "next/navigation";
-import { useNavigation } from "../context/NavigationContext";
+import t from "../translations/Footer"; // Importamos las traducciones
+import useFooterHook from "../hooks/main/Footer";
 
 export default function Footer() {
-  const router = useRouter();
-  const { pages } = useNavigation();
+  const { homePath, navigate, pages } = useFooterHook();
 
   return (
     <footer className="border-t border-zinc-800 bg-zinc-950 text-white">
@@ -16,7 +14,7 @@ export default function Footer() {
           <div>
             <button
               type="button"
-              onClick={() => router.push("/")}
+              onClick={() => navigate(homePath)}
               className="flex cursor-pointer items-center gap-2 text-lg font-bold"
             >
               <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-orange-500 text-lg">
@@ -24,58 +22,57 @@ export default function Footer() {
               </span>
 
               <span>
-                ELECTRO <span className="text-orange-400">TEC</span>
+                {t.brand.nameFirst}
+                <span className="text-orange-400">{t.brand.nameHighlight}</span>
               </span>
             </button>
 
             <p className="mt-4 max-w-sm text-sm leading-6 text-zinc-500">
-              Componentes, herramientas e instrumental para tus proyectos
-              electrónicos.
+              {t.brand.description}
             </p>
           </div>
 
           {/* Navegación */}
           <div>
             <h3 className="text-sm font-semibold uppercase tracking-wider text-white">
-              Navegación
+              {t.navigation.title}
             </h3>
 
             <div className="mt-4 flex flex-col gap-3">
-              {pages.map((page) => (
-                <button
-                  key={page.name}
-                  type="button"
-                  onClick={() => router.push(page.path)}
-                  className="w-fit cursor-pointer text-sm text-zinc-500 transition hover:text-orange-400"
-                >
-                  {page.name}
-                </button>
-              ))}
+              {pages
+                .filter((page) => page.inFoot)
+                .map((page) => (
+                  <button
+                    key={page.name}
+                    type="button"
+                    onClick={() => navigate(page.path)}
+                    className="w-fit cursor-pointer text-sm text-zinc-500 transition hover:text-orange-400"
+                  >
+                    {page.slug}
+                  </button>
+                ))}
             </div>
           </div>
 
           {/* Contacto */}
           <div>
             <h3 className="text-sm font-semibold uppercase tracking-wider text-white">
-              Contacto
+              {t.contact.title}
             </h3>
 
             <div className="mt-4 space-y-3 text-sm text-zinc-500">
-              <p>📍 Centro de la ciudad</p>
-              <p>📞 +54 9 0000 0000</p>
-              <p>✉️ contacto@electrotec.com</p>
-              <p>🕐 Lun - Vie · 9:00 a 18:00</p>
+              <p>{t.contact.location}</p>
+              <p>{t.contact.phone}</p>
+              <p>{t.contact.email}</p>
+              <p>{t.contact.schedule}</p>
             </div>
           </div>
         </div>
 
         <div className="mt-10 border-t border-zinc-800 pt-6">
-          <p className="text-center text-xs text-zinc-600">
-            © 2026 ELECTRO TEC. Todos los derechos reservados.
-          </p>
+          <p className="text-center text-xs text-zinc-600">{t.copyright}</p>
         </div>
       </div>
     </footer>
   );
 }
-

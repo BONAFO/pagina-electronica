@@ -1,22 +1,11 @@
-
 "use client";
 
-import { useState } from "react";
-import { useRouter } from "next/navigation";
-import { useNavigation } from "../context/NavigationContext";
+import t from "../translations/Product"; // Importamos las traducciones
+import useProductHook from "../hooks/main/Product";
 
 export default function Product({ product }) {
-  const router = useRouter();
-  const { pages } = useNavigation();
-  const [showModal, setShowModal] = useState(false);
-
-  const homePath = pages.find(
-    (page) => page.name === "Inicio"
-  )?.path;
-
-  const productsPath = pages.find(
-    (page) => page.name === "Productos"
-  )?.path;
+  const { homePath, navigate, productsPath, setShowModal, showModal } =
+    useProductHook({ product });
 
   return (
     <main className="min-h-screen bg-zinc-950 text-white">
@@ -24,7 +13,7 @@ export default function Product({ product }) {
         <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 sm:px-8 lg:px-10">
           <button
             type="button"
-            onClick={() => router.push(homePath)}
+            onClick={() => navigate(homePath)}
             className="flex cursor-pointer items-center gap-2 text-lg font-bold"
           >
             <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-orange-500 text-lg">
@@ -32,16 +21,17 @@ export default function Product({ product }) {
             </span>
 
             <span>
-              ELECTRO <span className="text-orange-400">TEC</span>
+              {t.brandNameFirst}{" "}
+              <span className="text-orange-400">{t.brandNameHighlight}</span>
             </span>
           </button>
 
           <button
             type="button"
-            onClick={() => router.push(productsPath)}
+            onClick={() => navigate(productsPath)}
             className="cursor-pointer rounded-xl border border-zinc-800 bg-zinc-900 px-4 py-2 text-sm font-medium text-zinc-300 transition hover:border-orange-500/60 hover:text-white"
           >
-            ← Productos
+            {t.backToProducts}
           </button>
         </div>
       </header>
@@ -50,20 +40,20 @@ export default function Product({ product }) {
         <div className="mb-6 text-sm text-zinc-500">
           <button
             type="button"
-            onClick={() => router.push(homePath)}
+            onClick={() => navigate(homePath)}
             className="cursor-pointer transition hover:text-orange-400"
           >
-            Inicio
+            {t.breadcrumb.home}
           </button>
 
           <span className="mx-2">/</span>
 
           <button
             type="button"
-            onClick={() => router.push(productsPath)}
+            onClick={() => navigate(productsPath)}
             className="cursor-pointer transition hover:text-orange-400"
           >
-            Productos
+            {t.breadcrumb.products}
           </button>
 
           <span className="mx-2">/</span>
@@ -82,7 +72,9 @@ export default function Product({ product }) {
                       : "border-red-500/20 bg-red-500/10 text-red-400"
                   }`}
                 >
-                  {product.stock ? "En stock" : "Sin stock"}
+                  {product.stock
+                    ? t.stockLabels.inStock
+                    : t.stockLabels.outOfStock}
                 </span>
               </div>
 
@@ -105,7 +97,7 @@ export default function Product({ product }) {
               <div className="my-7 h-px bg-zinc-800" />
 
               <div>
-                <p className="text-sm text-zinc-500">Precio</p>
+                <p className="text-sm text-zinc-500">{t.details.priceLabel}</p>
 
                 <p className="mt-1 text-4xl font-bold text-white sm:text-5xl">
                   ${product.price.toLocaleString("es-AR")}
@@ -124,13 +116,15 @@ export default function Product({ product }) {
 
                   <div>
                     <p className="text-sm font-medium text-white">
-                      {product.stock ? "Disponible" : "Actualmente sin stock"}
+                      {product.stock
+                        ? t.details.availableTitle
+                        : t.details.unavailableTitle}
                     </p>
 
                     <p className="mt-0.5 text-xs text-zinc-500">
                       {product.stock
-                        ? "Podés consultar por este producto."
-                        : "Consultanos para conocer disponibilidad."}
+                        ? t.details.availableSubtitle
+                        : t.details.unavailableSubtitle}
                     </p>
                   </div>
                 </div>
@@ -142,21 +136,21 @@ export default function Product({ product }) {
                   onClick={() => setShowModal(true)}
                   className="flex-1 cursor-pointer rounded-xl bg-orange-500 px-6 py-3.5 font-semibold text-white transition hover:bg-orange-400"
                 >
-                  Consultar producto
+                  {t.details.buttons.inquire}
                 </button>
 
                 <button
                   type="button"
-                  onClick={() => router.push(productsPath)}
+                  onClick={() => navigate(productsPath)}
                   className="cursor-pointer rounded-xl border border-zinc-700 bg-zinc-900 px-6 py-3.5 font-semibold text-zinc-300 transition hover:border-orange-500/60 hover:text-white"
                 >
-                  Ver productos
+                  {t.details.buttons.viewProducts}
                 </button>
               </div>
 
               <div className="mt-8 grid grid-cols-2 gap-3">
                 <div className="rounded-xl border border-zinc-800 bg-zinc-950/50 p-4">
-                  <p className="text-xs text-zinc-500">Marca</p>
+                  <p className="text-xs text-zinc-500">{t.details.metaBrand}</p>
 
                   <p className="mt-1 text-sm font-medium text-white">
                     {product.brand}
@@ -164,7 +158,9 @@ export default function Product({ product }) {
                 </div>
 
                 <div className="rounded-xl border border-zinc-800 bg-zinc-950/50 p-4">
-                  <p className="text-xs text-zinc-500">Producto</p>
+                  <p className="text-xs text-zinc-500">
+                    {t.details.metaProduct}
+                  </p>
 
                   <p className="mt-1 text-sm font-medium text-white">
                     #{product.id}
@@ -191,13 +187,11 @@ export default function Product({ product }) {
             </div>
 
             <h2 className="mt-5 text-2xl font-bold text-white">
-              Página de demostración
+              {t.modal.title}
             </h2>
 
             <p className="mt-3 text-sm leading-6 text-zinc-400">
-              Esta es una página estática de prueba. La función de consulta
-              estaría disponible cuando el sitio se conecte con los medios de
-              contacto del negocio.
+              {t.modal.description}
             </p>
 
             <button
@@ -205,7 +199,7 @@ export default function Product({ product }) {
               onClick={() => setShowModal(false)}
               className="mt-7 w-full cursor-pointer rounded-xl bg-orange-500 px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-orange-400"
             >
-              Entendido
+              {t.modal.button}
             </button>
           </div>
         </div>
@@ -213,4 +207,3 @@ export default function Product({ product }) {
     </main>
   );
 }
-

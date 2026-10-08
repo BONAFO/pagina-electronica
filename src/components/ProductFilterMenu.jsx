@@ -1,37 +1,18 @@
-
 "use client";
 
-import { useState } from "react";
-import { useRouter } from "next/navigation";
 import FiltersModal from "./FiltersModal";
 import SortModal from "./SortModal";
-import { useProductsModal } from "../context/ProductsModalContext";
-import products from "../db/Products.db.json";
+import t from "../translations/ProductFilterMenu"; // Importamos las traducciones
+import useProductFilterMenuHook from "../hooks/main/ProductFilterMenu";
 
 export default function ProductFilterMenu() {
-  const { setModalVisible } = useProductsModal();
-  const router = useRouter();
-  const [search, setSearch] = useState("");
-
-  const searchResults =
-    search.trim() === ""
-      ? []
-      : products
-          .filter((product) => {
-            const value = search.toLowerCase().trim();
-
-            return (
-              product.name.toLowerCase().includes(value) ||
-              product.brand.toLowerCase().includes(value)
-            );
-          })
-          .slice(0, 10);
-
-  const handleProductClick = (id) => {
-    setSearch("");
-    router.push(`/product?id=${id}`);
-  };
-
+  const {
+    setModalVisible,
+    search,
+    setSearch,
+    searchResults,
+    handleProductClick,
+  } = useProductFilterMenuHook();
   return (
     <section className="relative w-full rounded-2xl border border-orange-500/40 bg-zinc-950 p-4 sm:p-5">
       {/* Buscador */}
@@ -44,7 +25,7 @@ export default function ProductFilterMenu() {
           type="text"
           value={search}
           onChange={(event) => setSearch(event.target.value)}
-          placeholder="Buscar productos..."
+          placeholder={t.search.placeholder}
           className="h-12 w-full rounded-xl border border-zinc-800 bg-zinc-900 pl-11 pr-4 text-sm text-white outline-none transition placeholder:text-zinc-500 focus:border-orange-500/60"
         />
 
@@ -89,9 +70,7 @@ export default function ProductFilterMenu() {
               </div>
             ) : (
               <div className="px-4 py-6 text-center">
-                <p className="text-sm text-zinc-400">
-                  No se encontraron productos.
-                </p>
+                <p className="text-sm text-zinc-400">{t.search.noResults}</p>
               </div>
             )}
           </div>
@@ -107,7 +86,7 @@ export default function ProductFilterMenu() {
           className="flex h-12 cursor-pointer items-center justify-between rounded-xl border border-zinc-800 bg-zinc-900 px-4 text-sm font-medium text-white transition hover:border-orange-500/60 hover:bg-zinc-800"
         >
           <span className="flex items-center gap-2">
-            <span className="text-orange-400">⚙</span> Filtros
+            <span className="text-orange-400">⚙</span> {t.buttons.filters}
           </span>
 
           <span className="text-xs text-zinc-500"> ▾ </span>
@@ -120,7 +99,7 @@ export default function ProductFilterMenu() {
           className="flex h-12 cursor-pointer items-center justify-between rounded-xl border border-zinc-800 bg-zinc-900 px-4 text-sm font-medium text-white transition hover:border-orange-500/60 hover:bg-zinc-800"
         >
           <span className="flex items-center gap-2">
-            <span className="text-orange-400">↕</span> Ordenar
+            <span className="text-orange-400">↕</span> {t.buttons.sort}
           </span>
 
           <span className="text-xs text-zinc-500"> ▾ </span>
@@ -129,4 +108,3 @@ export default function ProductFilterMenu() {
     </section>
   );
 }
-

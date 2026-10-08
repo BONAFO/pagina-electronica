@@ -4,12 +4,8 @@ import sortOptions from "../db/Sort.db.json";
 import useSortModalHook from "../hooks/main/SortModal";
 
 export default function SortModal() {
-  const {
-    setModalVisible,
-    currentSort,
-    handleSort,
-    clearSort,
-  } = useSortModalHook();
+  const { setModalVisible, currentSort, handleSort, clearSort } =
+    useSortModalHook();
 
   return (
     <>
@@ -25,9 +21,7 @@ export default function SortModal() {
       <aside className="fixed right-0 top-0 z-50 h-full w-full max-w-sm border-l border-orange-500/40 bg-zinc-950 shadow-2xl shadow-black/50 animate-[slideIn_0.25s_ease-out]">
         {/* Header */}
         <div className="flex h-16 items-center justify-between border-b border-zinc-800 px-5">
-          <h2 className="text-lg font-semibold text-white">
-            Ordenar
-          </h2>
+          <h2 className="text-lg font-semibold text-white">Ordenar</h2>
 
           <button
             type="button"
@@ -43,9 +37,7 @@ export default function SortModal() {
         {/* Opciones */}
         <div className="p-5">
           <div className="mb-4 flex items-center justify-between">
-            <h3 className="text-sm font-semibold text-zinc-300">
-              Ordenar por
-            </h3>
+            <h3 className="text-sm font-semibold text-zinc-300">Ordenar por</h3>
 
             {currentSort && (
               <button
@@ -73,15 +65,9 @@ export default function SortModal() {
                       : "border-zinc-800 bg-zinc-900 text-zinc-300 hover:border-orange-500/40 hover:bg-zinc-800 hover:text-white"
                   }`}
                 >
-                  <span className="flex-1">
-                    {option.name}
-                  </span>
+                  <span className="flex-1">{option.name}</span>
 
-                  {isActive && (
-                    <span className="text-orange-400">
-                      ✓
-                    </span>
-                  )}
+                  {isActive && <span className="text-orange-400">✓</span>}
                 </button>
               );
             })}

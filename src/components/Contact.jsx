@@ -1,39 +1,11 @@
-
 "use client";
 
-import { useState } from "react";
+import t from "../translations/Contact"; // Importamos las traducciones
+import useContactHook from "../hooks/main/Contact";
 
 export default function Contact() {
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    message: "",
-  });
-
-  const [showModal, setShowModal] = useState(false);
-
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-
-    setForm((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-
-    console.log("Formulario enviado:", form);
-
-    setShowModal(true);
-  };
-
-  const handleCloseModal = () => {
-    setShowModal(false);
-    window.location.reload();
-  };
+  const { form, handleChange, handleCloseModal, handleSubmit, showModal } =
+    useContactHook();
 
   return (
     <main className="min-h-screen bg-zinc-950 text-white">
@@ -43,17 +15,16 @@ export default function Contact() {
 
         <div className="relative mx-auto max-w-7xl px-5 pb-14 pt-32 sm:px-8 sm:pb-16 lg:px-10 lg:pt-40">
           <p className="text-sm font-semibold uppercase tracking-[0.25em] text-orange-400">
-            Contacto
+            {t.hero.badge}
           </p>
 
           <h1 className="mt-4 max-w-3xl text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
-            Estamos para ayudarte con tu próximo
-            <span className="text-orange-400"> proyecto.</span>
+            {t.hero.titlePrimary}
+            <span className="text-orange-400">{t.hero.titleHighlight}</span>
           </h1>
 
           <p className="mt-6 max-w-2xl text-base leading-7 text-zinc-400 sm:text-lg">
-            ¿Buscás un producto, necesitás asesoramiento o querés hacer una
-            consulta? Ponete en contacto con nosotros.
+            {t.hero.description}
           </p>
         </div>
       </section>
@@ -65,15 +36,13 @@ export default function Contact() {
           <div className="space-y-4">
             <div className="rounded-2xl border border-zinc-800 bg-zinc-900/70 p-6 sm:p-7">
               <p className="text-sm font-semibold uppercase tracking-widest text-orange-400">
-                Hablemos
+                {t.infoSection.badge}
               </p>
 
-              <h2 className="mt-3 text-2xl font-bold">
-                ¿Cómo podemos ayudarte?
-              </h2>
+              <h2 className="mt-3 text-2xl font-bold">{t.infoSection.title}</h2>
 
               <p className="mt-4 text-sm leading-6 text-zinc-500">
-                Escribinos y te responderemos con la información que necesites.
+                {t.infoSection.description}
               </p>
             </div>
 
@@ -85,11 +54,11 @@ export default function Contact() {
 
                 <div>
                   <p className="text-xs uppercase tracking-wider text-zinc-500">
-                    Teléfono
+                    {t.infoSection.phone.label}
                   </p>
 
                   <p className="mt-1 font-medium text-white">
-                    +54 9 11 0000-0000
+                    {t.infoSection.phone.value}
                   </p>
                 </div>
               </div>
@@ -103,11 +72,11 @@ export default function Contact() {
 
                 <div>
                   <p className="text-xs uppercase tracking-wider text-zinc-500">
-                    Email
+                    {t.infoSection.email.label}
                   </p>
 
                   <p className="mt-1 font-medium text-white">
-                    contacto@electrotec.com
+                    {t.infoSection.email.value}
                   </p>
                 </div>
               </div>
@@ -121,11 +90,11 @@ export default function Contact() {
 
                 <div>
                   <p className="text-xs uppercase tracking-wider text-zinc-500">
-                    Ubicación
+                    {t.infoSection.location.label}
                   </p>
 
                   <p className="mt-1 font-medium text-white">
-                    Centro de la ciudad
+                    {t.infoSection.location.value}
                   </p>
                 </div>
               </div>
@@ -133,18 +102,22 @@ export default function Contact() {
 
             <div className="rounded-2xl border border-orange-500/20 bg-orange-500/5 p-6 sm:p-7">
               <p className="text-sm font-semibold text-orange-400">
-                Horarios de atención
+                {t.infoSection.schedule.title}
               </p>
 
               <div className="mt-4 space-y-2 text-sm text-zinc-400">
                 <div className="flex justify-between gap-4">
-                  <span>Lunes a viernes</span>
-                  <span className="text-zinc-300">09:00 - 18:00</span>
+                  <span>{t.infoSection.schedule.weekdays}</span>
+                  <span className="text-zinc-300">
+                    {t.infoSection.schedule.weekdaysHours}
+                  </span>
                 </div>
 
                 <div className="flex justify-between gap-4">
-                  <span>Sábados</span>
-                  <span className="text-zinc-300">09:00 - 13:00</span>
+                  <span>{t.infoSection.schedule.saturdays}</span>
+                  <span className="text-zinc-300">
+                    {t.infoSection.schedule.saturdaysHours}
+                  </span>
                 </div>
               </div>
             </div>
@@ -154,15 +127,13 @@ export default function Contact() {
           <div className="rounded-3xl border border-zinc-800 bg-zinc-900/70 p-6 sm:p-8 lg:p-10">
             <div>
               <p className="text-sm font-semibold uppercase tracking-widest text-orange-400">
-                Enviá tu consulta
+                {t.formSection.badge}
               </p>
 
-              <h2 className="mt-3 text-3xl font-bold">
-                Contanos qué necesitás.
-              </h2>
+              <h2 className="mt-3 text-3xl font-bold">{t.formSection.title}</h2>
 
               <p className="mt-3 text-sm leading-6 text-zinc-500">
-                Completá el formulario y nos pondremos en contacto con vos.
+                {t.formSection.description}
               </p>
             </div>
 
@@ -173,7 +144,7 @@ export default function Contact() {
                     htmlFor="name"
                     className="mb-2 block text-sm font-medium text-zinc-300"
                   >
-                    Nombre
+                    {t.formSection.fields.name.label}
                   </label>
 
                   <input
@@ -182,7 +153,7 @@ export default function Contact() {
                     type="text"
                     value={form.name}
                     onChange={handleChange}
-                    placeholder="Tu nombre"
+                    placeholder={t.formSection.fields.name.placeholder}
                     className="h-12 w-full rounded-xl border border-zinc-800 bg-zinc-950 px-4 text-sm text-white outline-none transition placeholder:text-zinc-600 focus:border-orange-500/60"
                   />
                 </div>
@@ -192,7 +163,7 @@ export default function Contact() {
                     htmlFor="email"
                     className="mb-2 block text-sm font-medium text-zinc-300"
                   >
-                    Email
+                    {t.formSection.fields.email.label}
                   </label>
 
                   <input
@@ -201,7 +172,7 @@ export default function Contact() {
                     type="email"
                     value={form.email}
                     onChange={handleChange}
-                    placeholder="tu@email.com"
+                    placeholder={t.formSection.fields.email.placeholder}
                     className="h-12 w-full rounded-xl border border-zinc-800 bg-zinc-950 px-4 text-sm text-white outline-none transition placeholder:text-zinc-600 focus:border-orange-500/60"
                   />
                 </div>
@@ -212,7 +183,7 @@ export default function Contact() {
                   htmlFor="phone"
                   className="mb-2 block text-sm font-medium text-zinc-300"
                 >
-                  Teléfono
+                  {t.formSection.fields.phone.label}
                 </label>
 
                 <input
@@ -221,7 +192,7 @@ export default function Contact() {
                   type="tel"
                   value={form.phone}
                   onChange={handleChange}
-                  placeholder="+54 9 11 0000-0000"
+                  placeholder={t.formSection.fields.phone.placeholder}
                   className="h-12 w-full rounded-xl border border-zinc-800 bg-zinc-950 px-4 text-sm text-white outline-none transition placeholder:text-zinc-600 focus:border-orange-500/60"
                 />
               </div>
@@ -231,7 +202,7 @@ export default function Contact() {
                   htmlFor="message"
                   className="mb-2 block text-sm font-medium text-zinc-300"
                 >
-                  Consulta
+                  {t.formSection.fields.message.label}
                 </label>
 
                 <textarea
@@ -239,7 +210,7 @@ export default function Contact() {
                   name="message"
                   value={form.message}
                   onChange={handleChange}
-                  placeholder="¿En qué podemos ayudarte?"
+                  placeholder={t.formSection.fields.message.placeholder}
                   rows={7}
                   className="w-full resize-none rounded-xl border border-zinc-800 bg-zinc-950 px-4 py-3 text-sm text-white outline-none transition placeholder:text-zinc-600 focus:border-orange-500/60"
                 />
@@ -249,7 +220,7 @@ export default function Contact() {
                 type="submit"
                 className="w-full cursor-pointer rounded-xl bg-orange-500 px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-orange-400"
               >
-                Enviar consulta
+                {t.formSection.submitButton}
               </button>
             </form>
           </div>
@@ -265,12 +236,11 @@ export default function Contact() {
             </div>
 
             <h2 className="mt-5 text-2xl font-bold text-white">
-              ¡Consulta enviada!
+              {t.modal.title}
             </h2>
 
             <p className="mt-3 text-sm leading-6 text-zinc-400">
-              Recibimos tu consulta correctamente. Nos pondremos en contacto
-              con vos lo antes posible.
+              {t.modal.description}
             </p>
 
             <button
@@ -278,7 +248,7 @@ export default function Contact() {
               onClick={handleCloseModal}
               className="mt-7 w-full cursor-pointer rounded-xl bg-orange-500 px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-orange-400"
             >
-              Aceptar
+              {t.modal.button}
             </button>
           </div>
         </div>
@@ -286,4 +256,3 @@ export default function Contact() {
     </main>
   );
 }
-

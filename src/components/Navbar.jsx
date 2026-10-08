@@ -1,39 +1,10 @@
-
 "use client";
 
-import { useState } from "react";
-import { useRouter } from "next/navigation";
-import { useNavigation } from "../context/NavigationContext";
+import useNavbarHook from "../hooks/main/Navbar";
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
-  const router = useRouter();
-  const { pages } = useNavigation();
-
-  const navigate = (path) => {
-    setIsOpen(false);
-    router.push(path);
-  };
-
-  const homePath = pages.find(
-    (page) => page.name === "Inicio"
-  )?.path;
-
-  const productsPath = pages.find(
-    (page) => page.name === "Productos"
-  )?.path;
-
-  const servicesPath = pages.find(
-    (page) => page.name === "Servicios"
-  )?.path;
-
-  const aboutPath = pages.find(
-    (page) => page.name === "Nosotros"
-  )?.path;
-
-  const contactPath = pages.find(
-    (page) => page.name === "Contacto"
-  )?.path;
+  const { isOpen, setIsOpen, pages, navigate, homePath, contactPath } =
+    useNavbarHook();
 
   return (
     <nav className="absolute left-0 top-0 z-50 w-full">
@@ -42,7 +13,7 @@ export default function Navbar() {
           {/* Logo */}
           <button
             type="button"
-            onClick={() => navigate(homePath)}
+            onClick={() => navigate(homePath, setIsOpen(false))}
             className="flex cursor-pointer items-center gap-2 text-lg font-bold text-white"
           >
             <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-orange-500 text-lg">
@@ -57,21 +28,21 @@ export default function Navbar() {
           {/* Desktop */}
           <div className="hidden items-center gap-8 md:flex">
             {pages
-              .filter((page) => page.name !== "Contacto")
+              .filter((page) => page.name !== "contact" && page.inFoot)
               .map((page) => (
                 <button
                   key={page.name}
                   type="button"
-                  onClick={() => navigate(page.path)}
+                  onClick={() => navigate(page.path, setIsOpen(false))}
                   className="cursor-pointer text-sm font-medium text-white/90 transition hover:text-orange-400"
                 >
-                  {page.name}
+                  {page.slug}
                 </button>
               ))}
 
             <button
               type="button"
-              onClick={() => navigate(contactPath)}
+              onClick={() => navigate(contactPath, setIsOpen(false))}
               className="cursor-pointer rounded-xl bg-orange-500 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-orange-400"
             >
               Consultar
@@ -86,9 +57,7 @@ export default function Navbar() {
             aria-label="Abrir menú"
             aria-expanded={isOpen}
           >
-            <span className="text-2xl leading-none">
-              {isOpen ? "×" : "☰"}
-            </span>
+            <span className="text-2xl leading-none">{isOpen ? "×" : "☰"}</span>
           </button>
         </div>
       </div>
@@ -100,20 +69,22 @@ export default function Navbar() {
         }`}
       >
         <div className="flex flex-col px-5 py-4">
-          {pages.map((page) => (
-            <button
-              key={page.name}
-              type="button"
-              onClick={() => navigate(page.path)}
-              className="cursor-pointer border-b border-white/10 py-4 text-left text-sm font-medium text-white transition hover:text-orange-400"
-            >
-              {page.name}
-            </button>
-          ))}
+          {pages
+            .filter((page) => page.name !== "contact" && page.inFoot)
+            .map((page) => (
+              <button
+                key={page.name}
+                type="button"
+                onClick={() => navigate(page.path, setIsOpen(false))}
+                className="cursor-pointer border-b border-white/10 py-4 text-left text-sm font-medium text-white transition hover:text-orange-400"
+              >
+                {page.slug}
+              </button>
+            ))}
 
           <button
             type="button"
-            onClick={() => navigate(contactPath)}
+            onClick={() => navigate(contactPath, setIsOpen(false))}
             className="mt-4 cursor-pointer rounded-xl bg-orange-500 px-5 py-3 text-center text-sm font-semibold text-white transition hover:bg-orange-400"
           >
             Consultar
@@ -123,4 +94,3 @@ export default function Navbar() {
     </nav>
   );
 }
-

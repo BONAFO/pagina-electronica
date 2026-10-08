@@ -1,73 +1,20 @@
 "use client";
 
-import { useRouter } from "next/navigation";
-import { useNavigation } from "../context/NavigationContext";
-
-const categories = [
-  {
-    icon: "🔌",
-    title: "Placas",
-    description: "Arduino, ESP32, Raspberry Pi y más.",
-  },
-  {
-    icon: "📡",
-    title: "Sensores",
-    description: "Sensores para medir, detectar y experimentar.",
-  },
-  {
-    icon: "🖥️",
-    title: "Displays",
-    description: "Pantallas y soluciones de visualización.",
-  },
-  {
-    icon: "⚙️",
-    title: "Módulos",
-    description: "Módulos listos para integrar en tus proyectos.",
-  },
-  {
-    icon: "🔧",
-    title: "Herramientas",
-    description: "Equipamiento para trabajar con electrónica.",
-  },
-  {
-    icon: "📐",
-    title: "Instrumental",
-    description: "Medición, diagnóstico y pruebas.",
-  },
-];
-
-const benefits = [
-  {
-    icon: "⚡",
-    title: "Todo en un solo lugar",
-    description:
-      "Componentes, herramientas e instrumental para tus proyectos electrónicos.",
-  },
-  {
-    icon: "🎯",
-    title: "Para cada proyecto",
-    description:
-      "Desde prototipos y aprendizaje hasta reparación y desarrollo.",
-  },
-  {
-    icon: "🤝",
-    title: "Asesoramiento",
-    description:
-      "Si no sabés qué necesitás, podemos ayudarte a encontrar la solución.",
-  },
-];
+import { useRef, useEffect } from "react";
+import t from "../translations/Home";
+import useRoutesHook from "../hooks/main/Routes";
+import { useNavigate } from "../hooks/Navigation";
+import useHomeHook from "../hooks/main/Home";
 
 export default function Home() {
-  const router = useRouter();
-  const { pages } = useNavigation();
-
-  const productsPath = pages.find((page) => page.name === "Productos")?.path;
-
-  const servicesPath = pages.find((page) => page.name === "Servicios")?.path;
-
-  const aboutPath = pages.find((page) => page.name === "Nosotros")?.path;
-
-  const contactPath = pages.find((page) => page.name === "Contacto")?.path;
+  const {
+    productsPath,
+    contactPath,
+    servicesPath,
+    aboutPath,
+    navigate,
+    carouselRef,
+  } = useHomeHook();
 
   return (
     <main className="min-h-screen bg-zinc-950 text-white">
@@ -85,57 +32,63 @@ export default function Home() {
               <span className="h-2 w-2 rounded-full bg-orange-400" />
 
               <span className="text-xs font-medium text-orange-300 sm:text-sm">
-                Componentes · Herramientas · Instrumental
+                {t.hero.badge}
               </span>
             </div>
 
             <h1 className="text-5xl font-bold leading-[1.05] tracking-tight sm:text-6xl lg:text-8xl">
-              La electrónica <br />
+              {t.hero.titlePrimary} <br />
               empieza con una&nbsp;
-              <span className="text-orange-400">idea.</span>
+              <span className="text-orange-400">{t.hero.titleHighlight}</span>
             </h1>
 
             <p className="mt-7 max-w-2xl text-base leading-7 text-zinc-400 sm:text-lg">
-              Encontrá todo lo que necesitás para crear, reparar y experimentar.
-              Componentes y herramientas para llevar tus ideas del papel a la
-              realidad.
+              {t.hero.description}
             </p>
 
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <button
                 type="button"
-                onClick={() => router.push(productsPath)}
+                onClick={() => navigate(productsPath)}
                 className="cursor-pointer rounded-xl bg-orange-500 px-7 py-3.5 text-sm font-semibold text-white transition hover:bg-orange-400"
               >
-                Explorar productos
+                {t.hero.buttons.explore}
               </button>
 
               <button
                 type="button"
-                onClick={() => router.push(servicesPath)}
+                onClick={() => navigate(servicesPath)}
                 className="cursor-pointer rounded-xl border border-zinc-700 bg-zinc-900/70 px-7 py-3.5 text-sm font-semibold text-zinc-300 transition hover:border-orange-500/50 hover:text-white"
               >
-                Conocé nuestros servicios
+                {t.hero.buttons.services}
               </button>
             </div>
 
             <div className="mt-12 flex flex-wrap gap-x-8 gap-y-4 border-t border-zinc-800 pt-7">
               <div>
-                <p className="text-2xl font-bold text-white">50+</p>
+                <p className="text-2xl font-bold text-white">
+                  {t.hero.stats.productsCount}
+                </p>
                 <p className="mt-1 text-xs text-zinc-500">
-                  Productos disponibles
+                  {t.hero.stats.productsLabel}
                 </p>
               </div>
 
               <div>
-                <p className="text-2xl font-bold text-white">10</p>
-                <p className="mt-1 text-xs text-zinc-500">Categorías</p>
+                <p className="text-2xl font-bold text-white">
+                  {t.hero.stats.categoriesCount}
+                </p>
+                <p className="mt-1 text-xs text-zinc-500">
+                  {t.hero.stats.categoriesLabel}
+                </p>
               </div>
 
               <div>
-                <p className="text-2xl font-bold text-white">100%</p>
+                <p className="text-2xl font-bold text-white">
+                  {t.hero.stats.orientedPercent}
+                </p>
                 <p className="mt-1 text-xs text-zinc-500">
-                  Orientado a proyectos
+                  {t.hero.stats.orientedLabel}
                 </p>
               </div>
             </div>
@@ -143,49 +96,66 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Categorías */}
+      {/* Categorías (Carrusel de 1 en mobile) */}
       <section className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:px-10 lg:py-28">
         <div className="flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
           <div>
             <p className="text-sm font-semibold uppercase tracking-widest text-orange-400">
-              Explorá nuestro catálogo
+              {t.categoriesSection.badge}
             </p>
 
             <h2 className="mt-3 text-3xl font-bold sm:text-4xl">
-              Encontrá lo que necesitás.
+              {t.categoriesSection.title}
             </h2>
           </div>
 
           <button
             type="button"
-            onClick={() => router.push(productsPath)}
+            onClick={() => navigate(productsPath)}
             className="w-fit cursor-pointer text-sm font-semibold text-orange-400 transition hover:text-orange-300"
           >
-            Ver todos los productos →
+            {t.categoriesSection.viewAll}
           </button>
         </div>
 
-        <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
-          {categories.map((category) => (
-            <button
-              key={category.title}
-              type="button"
-              onClick={() => router.push(productsPath)}
-              className="group cursor-pointer rounded-2xl border border-zinc-800 bg-zinc-900/60 p-5 text-left transition duration-300 hover:-translate-y-1 hover:border-orange-500/40 hover:bg-zinc-900"
-            >
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-zinc-950 text-2xl transition group-hover:bg-orange-500/10">
-                {category.icon}
-              </div>
+        {/* Carrusel Horizontal */}
+        <div
+          ref={carouselRef}
+          className="mt-10 flex gap-4 overflow-x-auto pb-6 pt-2 scroll-smooth snap-x snap-mandatory scrollbar-thin scrollbar-thumb-zinc-800 scrollbar-track-transparent [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden touch-pan-x"
+        >
+          {t.categoriesSection.items.map((category) => {
+            const categorySlug = category.name
+              .toLowerCase()
+              .normalize("NFD")
+              .replace(/[\u0300-\u036f]/g, "")
+              .replace(/\s+/g, "-");
 
-              <h3 className="mt-5 text-sm font-semibold text-white">
-                {category.title}
-              </h3>
+            const categoryUrl = `${productsPath}?category=${categorySlug}`;
 
-              <p className="mt-2 text-xs leading-5 text-zinc-500">
-                {category.description}
-              </p>
-            </button>
-          ))}
+            return (
+              <button
+                key={category.name}
+                type="button"
+                onClick={() => navigate(categoryUrl)}
+                // w-[calc(100%-2.5rem)] -> 1 tarjeta exacta en mobile
+                // sm:w-[calc(50%-0.75rem)] -> 2 tarjetas en tablets
+                // lg:w-[calc(25%-0.75rem)] -> 4 tarjetas en desktop
+                className="group shrink-0 snap-start w-[calc(100%-2.5rem)] sm:w-[calc(50%-0.75rem)] lg:w-[calc(25%-0.75rem)] cursor-pointer rounded-2xl border border-zinc-800 bg-zinc-900/60 p-6 text-left transition duration-300 hover:-translate-y-1 hover:border-orange-500/40 hover:bg-zinc-900"
+              >
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-zinc-950 text-2xl transition group-hover:bg-orange-500/10">
+                  {category.icon}
+                </div>
+
+                <h3 className="mt-5 text-lg font-semibold text-white">
+                  {category.name}
+                </h3>
+
+                <p className="mt-2 text-sm leading-6 text-zinc-500 line-clamp-2">
+                  {category.description}
+                </p>
+              </button>
+            );
+          })}
         </div>
       </section>
 
@@ -194,32 +164,31 @@ export default function Home() {
         <div className="mx-auto grid max-w-7xl gap-12 px-5 py-20 sm:px-8 lg:grid-cols-2 lg:items-center lg:px-10 lg:py-28">
           <div>
             <p className="text-sm font-semibold uppercase tracking-widest text-orange-400">
-              ELECTRO TEC
+              {t.presentationSection.badge}
             </p>
 
             <h2 className="mt-3 text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl">
-              Más que componentes. <br />
-              <span className="text-zinc-500">Soluciones para crear.</span>
+              {t.presentationSection.titlePrimary} <br />
+              <span className="text-zinc-500">
+                {t.presentationSection.titleHighlight}
+              </span>
             </h2>
 
             <p className="mt-6 max-w-xl text-sm leading-7 text-zinc-400 sm:text-base">
-              Trabajamos para que encontrar componentes electrónicos,
-              herramientas e instrumental sea simple. Ya sea que estés empezando
-              un proyecto, reparando un equipo o desarrollando una solución,
-              queremos acompañarte.
+              {t.presentationSection.description}
             </p>
 
             <button
               type="button"
-              onClick={() => router.push(aboutPath)}
+              onClick={() => navigate(aboutPath)}
               className="mt-7 cursor-pointer rounded-xl border border-zinc-700 bg-zinc-950 px-6 py-3 text-sm font-semibold text-white transition hover:border-orange-500/50"
             >
-              Conocé más sobre nosotros
+              {t.presentationSection.button}
             </button>
           </div>
 
           <div className="grid gap-4 sm:grid-cols-3 lg:grid-cols-1">
-            {benefits.map((benefit, index) => (
+            {t.presentationSection.benefits.map((benefit, index) => (
               <div
                 key={benefit.title}
                 className="rounded-2xl border border-zinc-800 bg-zinc-950 p-6"
@@ -253,26 +222,24 @@ export default function Home() {
           <div className="grid gap-10 lg:grid-cols-[1fr_auto] lg:items-center">
             <div>
               <p className="text-sm font-semibold uppercase tracking-widest text-orange-400">
-                También podemos ayudarte
+                {t.servicesSection.badge}
               </p>
 
               <h2 className="mt-3 max-w-2xl text-3xl font-bold sm:text-4xl">
-                Reparación, diagnóstico, prototipado y mucho más.
+                {t.servicesSection.title}
               </h2>
 
               <p className="mt-5 max-w-2xl text-sm leading-7 text-zinc-500 sm:text-base">
-                Si no estás buscando solamente un componente, conocé los
-                servicios que ofrecemos para acompañar tus proyectos
-                electrónicos.
+                {t.servicesSection.description}
               </p>
             </div>
 
             <button
               type="button"
-              onClick={() => router.push(servicesPath)}
+              onClick={() => navigate(servicesPath)}
               className="cursor-pointer rounded-xl bg-orange-500 px-7 py-3.5 text-sm font-semibold text-white transition hover:bg-orange-400"
             >
-              Ver servicios
+              {t.servicesSection.button}
             </button>
           </div>
         </div>
@@ -285,24 +252,23 @@ export default function Home() {
 
           <div className="relative px-7 py-14 text-center sm:px-12 sm:py-20">
             <p className="text-sm font-semibold uppercase tracking-widest text-orange-400">
-              ¿Tenés un proyecto?
+              {t.ctaSection.badge}
             </p>
 
             <h2 className="mx-auto mt-4 max-w-3xl text-3xl font-bold sm:text-4xl lg:text-5xl">
-              Hagamos que esa idea se convierta en realidad.
+              {t.ctaSection.title}
             </h2>
 
             <p className="mx-auto mt-5 max-w-xl text-sm leading-6 text-zinc-400 sm:text-base">
-              Contanos qué necesitás y te ayudamos a encontrar la solución
-              adecuada.
+              {t.ctaSection.description}
             </p>
 
             <button
               type="button"
-              onClick={() => router.push(contactPath)}
+              onClick={() => navigate(contactPath)}
               className="mt-8 cursor-pointer rounded-xl bg-orange-500 px-8 py-3.5 text-sm font-semibold text-white transition hover:bg-orange-400"
             >
-              Contactarnos
+              {t.ctaSection.button}
             </button>
           </div>
         </div>

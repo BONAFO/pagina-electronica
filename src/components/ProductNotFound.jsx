@@ -1,20 +1,10 @@
 "use client";
 
-import { useRouter } from "next/navigation";
-import { useNavigation } from "../context/NavigationContext";
+import t from "../translations/Product"; // Importamos las traducciones
+import useProductNotFoundHook from "../hooks/main/ProductNotFound";
 
 export default function ProductNotFound() {
-  const router = useRouter();
-  const { pages } = useNavigation();
-
-  const homePath = pages.find(
-    (page) => page.name === "Inicio"
-  )?.path;
-
-  const productsPath = pages.find(
-    (page) => page.name === "Productos"
-  )?.path;
-
+  const { homePath, navigate, productsPath } = useProductNotFoundHook();
   return (
     <main className="min-h-screen bg-zinc-950 text-white">
       <section className="relative flex min-h-screen items-center justify-center overflow-hidden px-5 pb-16 pt-32 sm:px-8 sm:pb-20 sm:pt-36 lg:px-10">
@@ -35,38 +25,37 @@ export default function ProductNotFound() {
 
           {/* Eyebrow */}
           <p className="mt-7 text-xs font-semibold uppercase tracking-[0.2em] text-orange-400 sm:mt-8 sm:text-sm sm:tracking-widest">
-            Producto no encontrado
+            {t.notFound.badge}
           </p>
 
           {/* Title */}
           <h1 className="mt-4 text-4xl font-bold leading-[1.1] tracking-tight sm:text-5xl lg:text-6xl">
-            Parece que este producto
+            {t.notFound.titlePrimary}
             <br className="hidden sm:block" />
-            <span className="text-zinc-500"> no existe.</span>
+            <span className="text-zinc-500">{t.notFound.titleHighlight}</span>
           </h1>
 
           {/* Description */}
           <p className="mx-auto mt-5 max-w-lg text-sm leading-6 text-zinc-400 sm:mt-6 sm:text-base sm:leading-7">
-            El producto que estás buscando no existe o ya no se encuentra
-            disponible en nuestro catálogo.
+            {t.notFound.description}
           </p>
 
           {/* Actions */}
           <div className="mt-8 flex w-full flex-col gap-3 sm:mt-9 sm:flex-row sm:justify-center">
             <button
               type="button"
-              onClick={() => router.push(productsPath)}
+              onClick={() => navigate(productsPath)}
               className="min-h-12 w-full cursor-pointer rounded-xl bg-orange-500 px-7 py-3.5 text-sm font-semibold text-white transition hover:bg-orange-400 active:bg-orange-600 sm:w-auto"
             >
-              Ver productos
+              {t.notFound.buttons.viewProducts}
             </button>
 
             <button
               type="button"
-              onClick={() => router.push(homePath)}
+              onClick={() => navigate(homePath)}
               className="min-h-12 w-full cursor-pointer rounded-xl border border-zinc-700 bg-zinc-900/70 px-7 py-3.5 text-sm font-semibold text-zinc-300 transition hover:border-orange-500/50 hover:text-white active:bg-zinc-800 sm:w-auto"
             >
-              Volver al inicio
+              {t.notFound.buttons.goHome}
             </button>
           </div>
 
@@ -75,7 +64,7 @@ export default function ProductNotFound() {
             <div className="h-px flex-1 bg-zinc-800" />
 
             <span className="shrink-0 text-[10px] font-medium uppercase tracking-[0.2em] text-zinc-600 sm:text-xs">
-              ELECTRO TEC
+              {t.notFound.brandDivider}
             </span>
 
             <div className="h-px flex-1 bg-zinc-800" />

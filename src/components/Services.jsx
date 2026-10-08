@@ -1,56 +1,10 @@
-
 "use client";
 
-import { useRouter } from "next/navigation";
-import { useNavigation } from "../context/NavigationContext";
-
-const services = [
-  {
-    icon: "🔧",
-    title: "Reparación electrónica",
-    description:
-      "Diagnóstico y reparación de equipos y circuitos electrónicos, buscando identificar la causa de la falla y encontrar una solución.",
-  },
-  {
-    icon: "📐",
-    title: "Medición y diagnóstico",
-    description:
-      "Medición de señales, tensiones y componentes utilizando instrumental adecuado para detectar problemas y verificar circuitos.",
-  },
-  {
-    icon: "🧪",
-    title: "Prototipado",
-    description:
-      "Desarrollo y prueba de prototipos utilizando placas, sensores, módulos y diferentes componentes electrónicos.",
-  },
-  {
-    icon: "🔥",
-    title: "Soldadura y montaje",
-    description:
-      "Trabajos de soldadura, montaje y reparación de placas y componentes electrónicos.",
-  },
-  {
-    icon: "💡",
-    title: "Asesoramiento técnico",
-    description:
-      "Orientación para seleccionar componentes, herramientas e instrumental adecuados para cada proyecto.",
-  },
-  {
-    icon: "⚙️",
-    title: "Desarrollo de proyectos",
-    description:
-      "Soluciones electrónicas adaptadas a las necesidades de cada proyecto, desde la idea inicial hasta las pruebas.",
-  },
-];
+import t from "../translations/Services"; // Importamos las traducciones
+import useServicesHook from "../hooks/main/Services";
 
 export default function Services() {
-  const router = useRouter();
-  const { pages } = useNavigation();
-
-  const contactPath = pages.find(
-    (page) => page.name === "Contacto"
-  )?.path;
-
+  const { contactPath, navigate } = useServicesHook();
   return (
     <main className="min-h-screen bg-zinc-950 text-white">
       {/* Hero */}
@@ -59,18 +13,16 @@ export default function Services() {
 
         <div className="relative mx-auto max-w-7xl px-5 pb-16 pt-32 sm:px-8 sm:pb-20 lg:px-10 lg:pt-40">
           <p className="text-sm font-semibold uppercase tracking-[0.25em] text-orange-400">
-            Servicios
+            {t.hero.badge}
           </p>
 
           <h1 className="mt-4 max-w-4xl text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
-            Soluciones para llevar tus proyectos de la
-            <span className="text-orange-400">idea a la práctica.</span>
+            {t.hero.titlePrimary}
+            <span className="text-orange-400">{t.hero.titleHighlight}</span>
           </h1>
 
           <p className="mt-6 max-w-2xl text-base leading-7 text-zinc-400 sm:text-lg">
-            Además de componentes y herramientas, ofrecemos soluciones y
-            asesoramiento para ayudarte a desarrollar, reparar y mejorar tus
-            proyectos electrónicos.
+            {t.hero.description}
           </p>
         </div>
       </section>
@@ -78,7 +30,7 @@ export default function Services() {
       {/* Servicios */}
       <section className="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:px-10 lg:py-24">
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {services.map((service) => (
+          {t.list.map((service) => (
             <article
               key={service.title}
               className="group rounded-2xl border border-zinc-800 bg-zinc-900/70 p-6 transition duration-300 hover:-translate-y-1 hover:border-orange-500/50 hover:bg-zinc-900 sm:p-7"
@@ -87,9 +39,7 @@ export default function Services() {
                 {service.icon}
               </div>
 
-              <h2 className="mt-6 text-xl font-bold">
-                {service.title}
-              </h2>
+              <h2 className="mt-6 text-xl font-bold">{service.title}</h2>
 
               <p className="mt-3 text-sm leading-7 text-zinc-500">
                 {service.description}
@@ -99,10 +49,10 @@ export default function Services() {
 
               <button
                 type="button"
-                onClick={() => router.push(contactPath)}
+                onClick={() => navigate(contactPath)}
                 className="mt-5 cursor-pointer text-sm font-semibold text-orange-400 transition hover:text-orange-300"
               >
-                Consultar servicio →
+                {t.serviceCta}
               </button>
             </article>
           ))}
@@ -114,63 +64,35 @@ export default function Services() {
         <div className="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:px-10 lg:py-24">
           <div className="max-w-2xl">
             <p className="text-sm font-semibold uppercase tracking-widest text-orange-400">
-              Cómo trabajamos
+              {t.processSection.badge}
             </p>
 
             <h2 className="mt-3 text-3xl font-bold sm:text-4xl">
-              Un proceso simple.
+              {t.processSection.title}
             </h2>
 
             <p className="mt-4 text-sm leading-7 text-zinc-500 sm:text-base">
-              Desde la primera consulta hasta la solución, buscamos mantener el
-              proceso claro y directo.
+              {t.processSection.description}
             </p>
           </div>
 
           <div className="mt-12 grid gap-6 md:grid-cols-3">
-            <div className="relative rounded-2xl border border-zinc-800 bg-zinc-950 p-6">
-              <span className="text-4xl font-bold text-orange-500/30">
-                01
-              </span>
+            {t.processSection.steps.map((step) => (
+              <div
+                key={step.number}
+                className="relative rounded-2xl border border-zinc-800 bg-zinc-950 p-6"
+              >
+                <span className="text-4xl font-bold text-orange-500/30">
+                  {step.number}
+                </span>
 
-              <h3 className="mt-4 text-lg font-semibold">
-                Nos contás
-              </h3>
+                <h3 className="mt-4 text-lg font-semibold">{step.title}</h3>
 
-              <p className="mt-2 text-sm leading-6 text-zinc-500">
-                Explicanos qué necesitás, qué problema tenés o qué proyecto
-                querés realizar.
-              </p>
-            </div>
-
-            <div className="relative rounded-2xl border border-zinc-800 bg-zinc-950 p-6">
-              <span className="text-4xl font-bold text-orange-500/30">
-                02
-              </span>
-
-              <h3 className="mt-4 text-lg font-semibold">
-                Analizamos
-              </h3>
-
-              <p className="mt-2 text-sm leading-6 text-zinc-500">
-                Evaluamos la necesidad y buscamos los componentes, herramientas
-                o solución más adecuada.
-              </p>
-            </div>
-
-            <div className="relative rounded-2xl border border-zinc-800 bg-zinc-950 p-6">
-              <span className="text-4xl font-bold text-orange-500/30">
-                03
-              </span>
-
-              <h3 className="mt-4 text-lg font-semibold">
-                Lo hacemos realidad
-              </h3>
-
-              <p className="mt-2 text-sm leading-6 text-zinc-500">
-                Avanzamos con la solución y te acompañamos durante el proceso.
-              </p>
-            </div>
+                <p className="mt-2 text-sm leading-6 text-zinc-500">
+                  {step.description}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -183,25 +105,22 @@ export default function Services() {
           <div className="relative flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
             <div className="max-w-2xl">
               <p className="text-sm font-semibold uppercase tracking-widest text-orange-400">
-                ¿Necesitás ayuda?
+                {t.ctaBox.badge}
               </p>
 
               <h2 className="mt-3 text-3xl font-bold sm:text-4xl">
-                Contanos qué proyecto tenés en mente.
+                {t.ctaBox.title}
               </h2>
 
-              <p className="mt-4 text-zinc-400">
-                Podemos ayudarte a encontrar los componentes y la solución
-                adecuada para llevarlo adelante.
-              </p>
+              <p className="mt-4 text-zinc-400">{t.ctaBox.description}</p>
             </div>
 
             <button
               type="button"
-              onClick={() => router.push(contactPath)}
+              onClick={() => navigate(contactPath)}
               className="shrink-0 cursor-pointer rounded-xl bg-orange-500 px-7 py-3.5 text-sm font-semibold text-white transition hover:bg-orange-400"
             >
-              Contactarnos
+              {t.ctaBox.button}
             </button>
           </div>
         </div>
@@ -209,4 +128,3 @@ export default function Services() {
     </main>
   );
 }
-

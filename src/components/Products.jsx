@@ -2,26 +2,25 @@
 
 import ProductCard from "./ProductCard";
 import useProductsHook from "../hooks/main/Products";
+import t from "../translations/Products"; // Importamos las traducciones
 
 export default function Products() {
   const { filteredProducts, productPath, navigate } = useProductsHook();
-    console.log(filteredProducts);
     
   return (
     <section className="w-full">
       {/* Header */}
       <div className="mb-8">
         <p className="text-sm font-semibold uppercase tracking-wider text-orange-400">
-          Explorá nuestro catálogo
+          {t.header.badge}
         </p>
 
         <h1 className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">
-          Encontrá lo que necesitás.
+          {t.header.title}
         </h1>
 
         <p className="mt-3 max-w-2xl text-sm leading-6 text-zinc-400 sm:text-base">
-          Componentes, herramientas e instrumental para llevar tus proyectos
-          electrónicos del papel a la realidad.
+          {t.header.description}
         </p>
       </div>
 
@@ -40,12 +39,11 @@ export default function Products() {
           </div>
 
           <h2 className="mt-5 text-xl font-bold text-white">
-            No encontramos productos
+            {t.emptyState.title}
           </h2>
 
           <p className="mt-2 max-w-md text-sm leading-6 text-zinc-500">
-            No hay productos que coincidan con los filtros seleccionados. Probá
-            modificando la búsqueda o limpiando los filtros.
+            {t.emptyState.description}
           </p>
 
           <button
@@ -55,7 +53,7 @@ export default function Products() {
             }}
             className="mt-6 cursor-pointer rounded-xl bg-orange-500 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-orange-400"
           >
-            Ver todos los productos
+            {t.emptyState.button}
           </button>
         </div>
       )}

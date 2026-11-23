@@ -6,7 +6,7 @@
     "brand": "Arduino",
     "price": 18500,
     "stock": true,
-    "image": "https://placehold.co/600x600/png?text=Arduino+UNO+R3"
+    "image": "https://store.arduino.cc/cdn/shop/files/A000066_03.front_934x700.jpg?v=1727098250"
   },
   {
     "id": 2,
@@ -15,7 +15,7 @@
     "brand": "Arduino",
     "price": 11200,
     "stock": true,
-    "image": "https://placehold.co/600x600/png?text=Arduino+Nano+V3"
+    "image": "https://www.arduinoecia.com.br/wp-content/uploads/2020/12/Placas-Arduino.jpg"
   },
   {
     "id": 3,
@@ -24,7 +24,7 @@
     "brand": "Arduino",
     "price": 28500,
     "stock": true,
-    "image": "https://placehold.co/600x600/png?text=Arduino+Mega+2560"
+    "image": "https://rs.jlcpcb.com/static/image/blog/pcb-assembly/esp32-and-arduino-real-board-families.jpg"
   },
   {
     "id": 4,
@@ -33,7 +33,7 @@
     "brand": "Espressif",
     "price": 12500,
     "stock": true,
-    "image": "https://placehold.co/600x600/png?text=ESP32+DevKit"
+    "image": "https://content1.rozetka.com.ua/goods/images/big/251247193.jpg"
   },
   {
     "id": 5,
@@ -42,7 +42,7 @@
     "brand": "Espressif",
     "price": 8900,
     "stock": false,
-    "image": "https://placehold.co/600x600/png?text=ESP8266"
+    "image": "https://cdn1.botland.com.pl/105965-large_default/modul-wifi-esp8266-nodemcu-v3.jpg"
   },
   {
     "id": 6,
@@ -51,7 +51,7 @@
     "brand": "Raspberry Pi",
     "price": 16500,
     "stock": true,
-    "image": "https://placehold.co/600x600/png?text=Raspberry+Pi+Pico"
+    "image": "https://madflight.com/img/boards.jpeg"
   },
   {
     "id": 7,
@@ -60,7 +60,7 @@
     "brand": "Arduino",
     "price": 19800,
     "stock": true,
-    "image": "https://placehold.co/600x600/png?text=Arduino+Leonardo"
+    "image": "https://www.arduinoecia.com.br/wp-content/uploads/2020/12/Placas-Arduino.jpg"
   },
   {
     "id": 8,
@@ -69,7 +69,7 @@
     "brand": "Espressif",
     "price": 17800,
     "stock": true,
-    "image": "https://placehold.co/600x600/png?text=ESP32-S3"
+    "image": "https://madflight.com/img/boards.jpeg"
   },
   {
     "id": 9,
@@ -78,7 +78,7 @@
     "brand": "Aosong",
     "price": 3200,
     "stock": true,
-    "image": "https://placehold.co/600x600/png?text=DHT11"
+    "image": "https://static6.arrow.com/aropdfconversion/arrowimages/840b48bc737772b981df5c318bfa41b720a0c9ae/dfr0067_2502171.jpg"
   },
   {
     "id": 10,
@@ -87,7 +87,7 @@
     "brand": "Aosong",
     "price": 7200,
     "stock": true,
-    "image": "https://placehold.co/600x600/png?text=DHT22"
+    "image": "https://miro.medium.com/v2/resize%3Afit%3A1400/1%2ATGwFQAesLMxpW8Wd5ifu6Q.png"
   },
   {
     "id": 11,
@@ -96,7 +96,7 @@
     "brand": "Generic",
     "price": 3500,
     "stock": true,
-    "image": "https://placehold.co/600x600/png?text=HC-SR04"
+    "image": "https://down-ph.img.susercontent.com/file/cn-11134207-7ras8-m22652yvy7nw49"
   },
   {
     "id": 12,
@@ -105,7 +105,7 @@
     "brand": "Generic",
     "price": 2900,
     "stock": true,
-    "image": "https://placehold.co/600x600/png?text=HC-SR501"
+    "image": "https://down-ph.img.susercontent.com/file/cn-11134207-7ras8-m22652yvy7nw49"
   },
   {
     "id": 13,
@@ -114,7 +114,7 @@
     "brand": "Generic",
     "price": 2800,
     "stock": true,
-    "image": "https://placehold.co/600x600/png?text=Humedad"
+    "image": "https://quartzcomponentssupply.shop/images/quartzcomponentssupply.shop/images/product/5-in-1-arduino-sensor-kit-ultrasonic-pir-ir-proximity-dht11-and-soil-moisture-sensors-1.jpg"
   },
   {
     "id": 14,
@@ -123,7 +123,7 @@
     "brand": "Generic",
     "price": 1900,
     "stock": true,
-    "image": "https://placehold.co/600x600/png?text=LDR"
+    "image": "https://miro.medium.com/v2/resize%3Afit%3A1400/1%2ATGwFQAesLMxpW8Wd5ifu6Q.png"
   },
   {
     "id": 15,
@@ -132,7 +132,7 @@
     "brand": "Hanwei",
     "price": 4600,
     "stock": false,
-    "image": "https://placehold.co/600x600/png?text=MQ-2"
+    "image": "https://miro.medium.com/v2/resize%3Afit%3A1400/1%2ATGwFQAesLMxpW8Wd5ifu6Q.png"
   },
   {
     "id": 16,
@@ -141,7 +141,7 @@
     "brand": "ST",
     "price": 9800,
     "stock": true,
-    "image": "https://placehold.co/600x600/png?text=VL53L0X"
+    "image": "https://imgaz.staticbg.com/images/oaupload/banggood/images/15/20/788ef1ba-86e8-4c38-a8db-6590224f51d1.jpg.webp"
   },
   {
     "id": 17,
@@ -150,7 +150,7 @@
     "brand": "Generic",
     "price": 4800,
     "stock": true,
-    "image": "https://placehold.co/600x600/png?text=LCD+16x2"
+    "image": "https://anuelectronics.com/cdn/shop/collections/display.png?v=1777310776"
   },
   {
     "id": 18,
@@ -159,7 +159,7 @@
     "brand": "Generic",
     "price": 6200,
     "stock": true,
-    "image": "https://placehold.co/600x600/png?text=OLED+0.96"
+    "image": "https://anuelectronics.com/cdn/shop/collections/display.png?v=1777310776"
   },
   {
     "id": 19,
@@ -168,7 +168,7 @@
     "brand": "Generic",
     "price": 8900,
     "stock": true,
-    "image": "https://placehold.co/600x600/png?text=OLED+1.3"
+    "image": "https://anuelectronics.com/cdn/shop/collections/display.png?v=1777310776"
   },
   {
     "id": 20,
@@ -177,7 +177,7 @@
     "brand": "Generic",
     "price": 2700,
     "stock": true,
-    "image": "https://placehold.co/600x600/png?text=7+Segmentos"
+    "image": "https://anuelectronics.com/cdn/shop/collections/display.png?v=1777310776"
   },
   {
     "id": 21,
@@ -186,7 +186,7 @@
     "brand": "Generic",
     "price": 12500,
     "stock": false,
-    "image": "https://placehold.co/600x600/png?text=TFT+2.4"
+    "image": "https://anuelectronics.com/cdn/shop/collections/display.png?v=1777310776"
   },
   {
     "id": 22,
@@ -195,7 +195,7 @@
     "brand": "Generic",
     "price": 2200,
     "stock": true,
-    "image": "https://placehold.co/600x600/png?text=Relay+1CH"
+    "image": "https://imgaz.staticbg.com/images/oaupload/banggood/images/15/20/788ef1ba-86e8-4c38-a8db-6590224f51d1.jpg.webp"
   },
   {
     "id": 23,
@@ -204,7 +204,7 @@
     "brand": "Generic",
     "price": 5400,
     "stock": true,
-    "image": "https://placehold.co/600x600/png?text=Relay+4CH"
+    "image": "https://static-01.daraz.com.np/p/1de32728d231c38a50caf16ef3df4e57.jpg"
   },
   {
     "id": 24,
@@ -213,7 +213,7 @@
     "brand": "HC",
     "price": 6800,
     "stock": true,
-    "image": "https://placehold.co/600x600/png?text=HC-05"
+    "image": "https://imgaz.staticbg.com/images/oaupload/banggood/images/15/20/788ef1ba-86e8-4c38-a8db-6590224f51d1.jpg.webp"
   },
   {
     "id": 25,
@@ -222,7 +222,7 @@
     "brand": "HC",
     "price": 6200,
     "stock": false,
-    "image": "https://placehold.co/600x600/png?text=HC-06"
+    "image": "https://imgaz.staticbg.com/images/oaupload/banggood/images/15/20/788ef1ba-86e8-4c38-a8db-6590224f51d1.jpg.webp"
   },
   {
     "id": 26,
@@ -231,7 +231,7 @@
     "brand": "Maxim",
     "price": 5800,
     "stock": true,
-    "image": "https://placehold.co/600x600/png?text=DS3231"
+    "image": "https://m.media-amazon.com/images/I/61PHJisOInL.jpg"
   },
   {
     "id": 27,
@@ -240,7 +240,7 @@
     "brand": "Generic",
     "price": 2900,
     "stock": true,
-    "image": "https://placehold.co/600x600/png?text=MicroSD"
+    "image": "https://m.media-amazon.com/images/I/61PHJisOInL.jpg"
   },
   {
     "id": 28,
@@ -249,7 +249,7 @@
     "brand": "Generic",
     "price": 4500,
     "stock": true,
-    "image": "https://placehold.co/600x600/png?text=Protoboard+830"
+    "image": "https://www.anodas.lt/image/cache/catalog/elektronikos-komponentu-rinkinys-maxi-80839-500x500.jpg"
   },
   {
     "id": 29,
@@ -258,7 +258,7 @@
     "brand": "Generic",
     "price": 2900,
     "stock": true,
-    "image": "https://placehold.co/600x600/png?text=Protoboard+400"
+    "image": "https://m.media-amazon.com/images/I/71SansKcatL.jpg"
   },
   {
     "id": 30,
@@ -267,7 +267,7 @@
     "brand": "Generic",
     "price": 3900,
     "stock": true,
-    "image": "https://placehold.co/600x600/png?text=Cables+Dupont"
+    "image": "https://www.anodas.lt/image/cache/catalog/elektronikos-komponentu-rinkinys-maxi-80839-500x500.jpg"
   },
   {
     "id": 31,
@@ -276,7 +276,7 @@
     "brand": "Generic",
     "price": 5200,
     "stock": true,
-    "image": "https://placehold.co/600x600/png?text=Resistencias"
+    "image": "https://robocraze.com/cdn/shop/products/basic_comp_main.jpg?v=1743774643"
   },
   {
     "id": 32,
@@ -285,7 +285,7 @@
     "brand": "Nichicon",
     "price": 8900,
     "stock": true,
-    "image": "https://placehold.co/600x600/png?text=Capacitores"
+    "image": "https://robocraze.com/cdn/shop/products/basic_comp_main.jpg?v=1743774643"
   },
   {
     "id": 33,
@@ -294,7 +294,7 @@
     "brand": "Generic",
     "price": 6100,
     "stock": true,
-    "image": "https://placehold.co/600x600/png?text=LEDs"
+    "image": "https://robocraze.com/cdn/shop/products/basic_comp_main.jpg?v=1743774643"
   },
   {
     "id": 34,
@@ -303,7 +303,7 @@
     "brand": "Generic",
     "price": 3200,
     "stock": true,
-    "image": "https://placehold.co/600x600/png?text=1N4007"
+    "image": "https://robocraze.com/cdn/shop/products/basic_comp_main.jpg?v=1743774643"
   },
   {
     "id": 35,
@@ -312,7 +312,7 @@
     "brand": "Generic",
     "price": 3600,
     "stock": false,
-    "image": "https://placehold.co/600x600/png?text=BC547"
+    "image": "https://robocraze.com/cdn/shop/products/basic_comp_main.jpg?v=1743774643"
   },
   {
     "id": 36,
@@ -321,7 +321,7 @@
     "brand": "UNI-T",
     "price": 24500,
     "stock": true,
-    "image": "https://placehold.co/600x600/png?text=UT33D%2B"
+    "image": "https://images.clasohlson.com/medias/sys_master/h96/ha1/68808769830942.jpg"
   },
   {
     "id": 37,
@@ -330,7 +330,7 @@
     "brand": "UNI-T",
     "price": 68500,
     "stock": true,
-    "image": "https://placehold.co/600x600/png?text=UT61E"
+    "image": "https://images-cdn.ubuy.co.in/6346b839cb605b3aba0d86c4-uni-t-ut210e-pro-utg962.jpg"
   },
   {
     "id": 38,
@@ -339,7 +339,7 @@
     "brand": "UNI-T",
     "price": 36500,
     "stock": true,
-    "image": "https://placehold.co/600x600/png?text=Pinza+Amperometrica"
+    "image": "https://images-cdn.ubuy.co.in/6346b839cb605b3aba0d86c4-uni-t-ut210e-pro-utg962.jpg"
   },
   {
     "id": 39,
@@ -348,7 +348,7 @@
     "brand": "Rigol",
     "price": 385000,
     "stock": false,
-    "image": "https://placehold.co/600x600/png?text=Osciloscopio"
+    "image": "https://images.tcdn.com.br/img/img_prod/1165255/osciloscopio_digital_100mhz_2ch_12bits_dho1102_rigol_9209_2_1b93cabff0bdd66f7eee08ca417cf201.jpg"
   },
   {
     "id": 40,
@@ -357,7 +357,7 @@
     "brand": "YIHUA",
     "price": 42500,
     "stock": true,
-    "image": "https://placehold.co/600x600/png?text=Soldadura+60W"
+    "image": "https://down-my.img.susercontent.com/file/cn-11134207-7ras8-m62747g71bmp82"
   },
   {
     "id": 41,
@@ -366,7 +366,7 @@
     "brand": "YIHUA",
     "price": 68500,
     "stock": true,
-    "image": "https://placehold.co/600x600/png?text=Aire+Caliente"
+    "image": "https://down-my.img.susercontent.com/file/cn-11134207-7ras8-m62747g71bmp82"
   },
   {
     "id": 42,
@@ -375,7 +375,7 @@
     "brand": "Jakemy",
     "price": 12800,
     "stock": true,
-    "image": "https://placehold.co/600x600/png?text=Destornilladores"
+    "image": "https://d.scdn.gr/images/sku_main_images/054703/54703219/20240702112704_jakemy_katsavidi_gia_service_kiniton.jpeg"
   },
   {
     "id": 43,
@@ -384,7 +384,7 @@
     "brand": "Proskit",
     "price": 9500,
     "stock": true,
-    "image": "https://placehold.co/600x600/png?text=Pinza+de+Corte"
+    "image": "https://ref.prokits.com.tw/ProductPic/PM-764/1/201405301624298978.jpg"
   },
   {
     "id": 44,
@@ -393,7 +393,7 @@
     "brand": "Wanptek",
     "price": 78500,
     "stock": true,
-    "image": "https://placehold.co/600x600/png?text=Fuente+30V"
+    "image": "https://i.ebayimg.com/images/g/2RcAAOSw1LJlCrwx/s-l1600.jpg"
   },
   {
     "id": 45,
@@ -402,7 +402,7 @@
     "brand": "Wanptek",
     "price": 145000,
     "stock": false,
-    "image": "https://placehold.co/600x600/png?text=Fuente+60V"
+    "image": "https://image.pushauction.com/0/0/a12428ef-7e41-410c-9bec-471431aa8b68/4f4b46e0-bc53-4c3e-9144-6dee672a1967.JPG"
   },
   {
     "id": 46,
@@ -411,7 +411,7 @@
     "brand": "Mean Well",
     "price": 18500,
     "stock": true,
-    "image": "https://placehold.co/600x600/png?text=Fuente+12V"
+    "image": "https://image.pushauction.com/0/0/a12428ef-7e41-410c-9bec-471431aa8b68/4f4b46e0-bc53-4c3e-9144-6dee672a1967.JPG"
   },
   {
     "id": 47,
@@ -420,7 +420,7 @@
     "brand": "Generic",
     "price": 2200,
     "stock": true,
-    "image": "https://placehold.co/600x600/png?text=Dupont+Macho"
+    "image": "https://m.media-amazon.com/images/I/71SansKcatL.jpg"
   },
   {
     "id": 48,
@@ -429,7 +429,7 @@
     "brand": "Generic",
     "price": 2400,
     "stock": true,
-    "image": "https://placehold.co/600x600/png?text=Dupont+Macho-Hembra"
+    "image": "https://m.media-amazon.com/images/I/71SansKcatL.jpg"
   },
   {
     "id": 49,
@@ -438,7 +438,7 @@
     "brand": "Generic",
     "price": 1500,
     "stock": true,
-    "image": "https://placehold.co/600x600/png?text=Jack+DC"
+    "image": "https://images.prom.ua/6634515174_w640_h640_razem-55x21-dc022b.jpg"
   },
   {
     "id": 50,
@@ -447,6 +447,6 @@
     "brand": "UGREEN",
     "price": 7800,
     "stock": true,
-    "image": "https://placehold.co/600x600/png?text=USB+Tipo+C"
+    "image": "https://images.tcdn.com.br/img/img_prod/487288/cabo_ugreen_usb_c_para_usb_c_tipo_c_macho_tipo_c_macho_us286_1m_preto_11041_1_b85f298df94d98e482c8171c59236026.jpg"
   }
 ]

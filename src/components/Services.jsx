@@ -28,7 +28,7 @@ export default function Services() {
       </section>
 
       {/* Servicios */}
-      <section className="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:px-10 lg:py-24">
+      <section id="preview" className="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:px-10 lg:py-24">
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {t.list.map((service) => (
             <article

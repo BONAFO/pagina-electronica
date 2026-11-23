@@ -9,7 +9,7 @@ export default function About() {
   return (
     <main className="min-h-screen bg-zinc-950 text-white">
       {/* Hero */}
-      <section className="relative overflow-hidden border-b border-zinc-800">
+      <section id="preview" className="relative overflow-hidden border-b border-zinc-800">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(249,115,22,0.12),transparent_40%)]" />
 
         <div className="relative mx-auto max-w-7xl px-5 pb-16 pt-32 sm:px-8 sm:pb-20 lg:px-10 lg:pt-40">
@@ -18,7 +18,7 @@ export default function About() {
           </p>
 
           <h1 className="mt-4 max-w-4xl text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
-            {t.hero.titlePrimary}
+            {t.hero.titlePrimary}&nbsp;
             <span className="text-orange-400">
               {t.hero.titleHighlight}
             </span>

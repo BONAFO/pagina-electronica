@@ -19,7 +19,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-zinc-950 text-white">
       {/* Hero */}
-      <section className="relative min-h-[720px] overflow-hidden border-b border-zinc-800">
+      <section id="preview"  className="relative min-h-[720px] overflow-hidden border-b border-zinc-800">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_75%_25%,rgba(249,115,22,0.16),transparent_35%),radial-gradient(circle_at_15%_80%,rgba(249,115,22,0.07),transparent_30%)]" />
 
         <div className="absolute right-[-100px] top-[120px] h-[400px] w-[400px] rounded-full border border-orange-500/10" />
@@ -38,7 +38,7 @@ export default function Home() {
 
             <h1 className="text-5xl font-bold leading-[1.05] tracking-tight sm:text-6xl lg:text-8xl">
               {t.hero.titlePrimary} <br />
-              empieza con una&nbsp;
+              empieza con un&nbsp;
               <span className="text-orange-400">{t.hero.titleHighlight}</span>
             </h1>
 
@@ -160,7 +160,7 @@ export default function Home() {
       </section>
 
       {/* Presentación */}
-      <section className="border-y border-zinc-800 bg-zinc-900/30">
+      <section id="preview2" className="border-y border-zinc-800 bg-zinc-900/30">
         <div className="mx-auto grid max-w-7xl gap-12 px-5 py-20 sm:px-8 lg:grid-cols-2 lg:items-center lg:px-10 lg:py-28">
           <div>
             <p className="text-sm font-semibold uppercase tracking-widest text-orange-400">

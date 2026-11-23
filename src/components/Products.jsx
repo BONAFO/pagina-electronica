@@ -25,7 +25,7 @@ export default function Products() {
       </div>
 
       {/* Productos */}
-      <div id="preview">
+      <section id="preview">
         {filteredProducts.length > 0 ? (
           <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3 xl:grid-cols-4">
             {filteredProducts.map((product) => (
@@ -58,7 +58,7 @@ export default function Products() {
             </button>
           </div>
         )}
-      </div>
+      </section>
     </section>
   );
 }
